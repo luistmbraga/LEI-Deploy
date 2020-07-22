@@ -3,7 +3,6 @@ version: '3.3'
 services:
 
     umbook-graphdb:
-        build: ./ontologia
         container_name: umbook-graphdb
         image: bragamann/umbook-graphdb:2020-07-03
         ports: 
@@ -14,7 +13,6 @@ services:
             - graphdbvol:/opt/graphdb/home
 
     umbook-interfaceapp:
-        build: ./interfaceapp
         depends_on: 
             - "umbook-apilayer"
             - "umbook-auth"
@@ -26,7 +24,6 @@ services:
             - frontend
 
     umbook-apichat:
-        build: ./apiChat
         depends_on: 
             - "umbook-mongo"
         container_name: umbook-apichat
@@ -38,7 +35,6 @@ services:
             - backend
 
     umbook-auth:
-        build: ./authServer
         depends_on: 
             - "umbook-mongoauth"
             - "umbook-apidados"
@@ -52,7 +48,6 @@ services:
             - backend
 
     umbook-apidados:
-        build: ./apiDados
         container_name: umbook-apidados
         image: bragamann/umbook-apidados:2020-07-03
         ports:
@@ -65,7 +60,6 @@ services:
 
 
     umbook-apilayer:
-        build: ./apiLayer
         depends_on: 
             - "umbook-apichat"
             - "umbook-apidados"
@@ -81,7 +75,6 @@ services:
         
   
     umbook-mongo:
-        build: ./UMbookMongo
         image: bragamann/umbook-mongo:2020-07-03
         container_name: umbook-mongo
         ports:
@@ -93,7 +86,6 @@ services:
             - ./umbook.sh:/docker-entrypoint-initdb.d/umbook.sh
 
     umbook-mongoauth:
-        build: ./UMbookAuthMongo
         image: bragamann/umbook-mongoauth:2020-07-03
         container_name: umbook-mongoauth
         command: mongod --port 27018
@@ -106,7 +98,6 @@ services:
             - mongodbauthvol:/data/db
 
     umbook-nginx:
-        build: ./UMbookNGINX
         depends_on: 
             - "umbook-interfaceapp"
             - "umbook-apidados"
