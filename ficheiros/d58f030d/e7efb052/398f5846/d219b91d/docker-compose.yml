@@ -1,0 +1,172 @@
+
+version: '3.3'
+
+services:
+
+  mysql-passadeiras:
+    build: ./db-passadeiras 
+    image: ryzonpt/mysql-passadeiras:firsttry
+    restart: always
+    container_name: mysql-passadeiras
+    environment:
+      - "MYSQL_ROOT_PASSWORD=complexpassword"
+      - "MYSQL_DATABASE=spws-passadeira"
+    ports:
+      - "8002:3306"
+    networks:
+      - mysql-passadeira
+
+  mysql-pedestres:
+
+    build: ./db-pedestres
+    image: ryzonpt/mysql-pedestres:mysql-pedestres
+    restart: always
+    container_name: mysql-pedestres
+    environment:
+      - "MYSQL_ROOT_PASSWORD=complexpassword"
+      - "MYSQL_DATABASE=pedestres"
+    ports:
+      - "8003:3306"
+    networks:
+      - mysql-pedestre
+
+  mysql-veiculos:
+
+    build: ./db-veiculos
+    image: ryzonpt/mysql-veiculos:mysql-veiculos
+    restart: always
+    container_name: mysql-veiculos
+
+    environment:
+      - "MYSQL_ROOT_PASSWORD=complexpassword"
+      - "MYSQL_DATABASE=veiculos"
+    ports:
+      - "8004:3306"
+    networks:
+      - mysql-veiculo
+
+
+  api-passadeira:
+    depends_on:
+      - "mysql-passadeiras"
+    container_name: api-passadeira
+    build:
+      context: ./apiPassadeiras
+    image: ryzonpt/api-passadeira:api-passadeiras
+    command: ["/wait-for-it.sh", "db:8002", "--", "npm", "start"]
+    volumes:
+      - type: bind
+        source: ./apiPassadeiras
+        target: /app
+    ports:
+      - "3051:3051"
+    environment:
+      - DATABASE_PASSWORD=complexpassword
+      - DATABASE_HOST=db
+
+    networks: 
+      - mysql-passadeira
+      - gateaway
+
+  api-pedestre:
+    depends_on:
+      - "mysql-pedestres"
+    container_name: api-pedestre
+    build:
+      context: ./apiPedestre
+    image: ryzonpt/api-pedestre:api-pedestre
+    command: ["/wait-for-it.sh", "db:8003", "--", "npm", "start"]
+    volumes:
+      - type: bind
+        source: ./apiPedestre
+        target: /app
+    ports:
+      - "3052:3052"
+    environment:
+      - DATABASE_PASSWORD=complexpassword
+      - DATABASE_HOST=db
+    networks: 
+      - mysql-pedestre
+      - gateaway
+
+  api-veiculos:
+    depends_on:
+      - "mysql-veiculos"
+    container_name: api-veiculos
+    build:
+      context: ./apiVeiculo
+    image: ryzonpt/api-veiculos:api-veiculo
+    command: ["/wait-for-it.sh", "db:8004", "--", "npm", "start"]
+    volumes:
+      - type: bind
+        source: ./apiVeiculo
+        target: /app
+    ports:
+      - "3055:3055"
+    environment:
+      - DATABASE_PASSWORD=complexpassword
+      - DATABASE_HOST=db
+    networks: 
+      - mysql-veiculo
+      - gateaway
+
+  api-layer:
+    container_name: api-layer
+    build:
+      context: ./apiLayer
+    image: ryzonpt/api-layer:api-layer
+    volumes:
+      - type: bind
+        source: ./apiLayer
+        target: /app
+    ports:
+      - "4000:4000"
+    networks: 
+      - gateaway
+
+  front-end-vue:
+    container_name: front-end-vue
+    image: ryzonpt/front-end-vue:front-end-vue
+    volumes:
+      - type: bind
+        source: ./vue
+        target: /app
+    build:
+      context: ./vue
+    ports:
+      - "8080:8080"
+    networks: 
+      - gateaway
+
+  historico:
+    build: ./apiHistorico
+    image: ryzonpt/historico:historico
+    container_name: historico
+    volumes:
+      - type: bind
+        source: ./apiHistorico
+        target: /app
+    ports:
+      - "3050:3050"
+    depends_on:
+      - mongodb
+    networks:
+      - mongo
+      - gateaway
+
+  mongodb:
+    build: ./db-mongo
+    image: ryzonpt/mongo:mongodb
+    container_name: mongodb
+    ports:
+      - "27017:27017"
+    networks:
+      - mongo
+
+  
+networks:
+  mysql-passadeira:
+  mysql-pedestre:
+  mysql-veiculo:
+  mongo:
+  gateaway:

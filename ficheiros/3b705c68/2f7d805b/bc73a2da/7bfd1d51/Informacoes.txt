@@ -1,0 +1,27 @@
+
+Transporte Terras:
+
+Ficheiro de input do LPSolve do exemplo de transporte de terras, apresentado nos diapositivos
+Investigação Operacional Introdução. 
+
+O LPSolve (ver em Software como fazer download) é um package de resolução de problemas de programação
+linear que recebe como input ficheiros em formato LP.
+
+--------------------
+
+ModelosPL.zip:
+
+O ficheiro ModelosPL.zip contém ficheiros em formato LP de alguns modelos apresentados nos diapositivos
+Programação Linear - Modelos.
+
+O LPSolve (ver em Software como fazer download) é um package de resolução de problemas de programação
+linear que recebe como input ficheiros em formato LP. 
+
+--------------------
+
+Três Problemas em Grafos:
+
+O ficheiro TresProblemasEmGrafos.zip contém modelos em formato LP de problemas em grafos cujo enunciado
+está no próprio ficheiro.
+
+--------------------

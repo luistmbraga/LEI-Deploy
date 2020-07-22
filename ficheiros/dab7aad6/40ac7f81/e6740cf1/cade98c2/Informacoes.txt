@@ -1,0 +1,50 @@
+
+LPSolve: Reference Guide (http://lpsolve.sourceforge.net/5.5/):
+
+
+O LPSolve é um package freeware para a resolução de problemas de programação linear.
+
+O Integrated Development Environment (IDE) torna muito simples a sua utilização.
+
+(Na página do lp_solve reference guide menu > lpsolve distributed files, relativamente ao
+LPSolve_IDE, diz que:  "At this moment only available for Windows.")
+
+----------------------
+
+LPSolve: Download (http://sourceforge.net/projects/lpsolve/):
+
+
+Fazer download do ficheiro "lp_solve_5.5.2.0_IDE_Setup.exe" (ou versão mais recente) e fazer o setup no
+computador.
+
+---------------------
+
+LPSolve - Exemplo:
+
+
+Instruções para utilizadores pela primeira vez: 
+
+Depois de fazer o setup:
+
+- Abrir o exemplo ExemploMax2Por3;
+
+- Para resolver o modelo (com o método simplex), fazer F9 (ou clicar no triângulo verde);
+
+- Para ver a solução óptima do modelo, abrir o separador "Result", que mostra o valor da solução óptima
+e os valores das variáveis da solução óptima.
+
+
+--------------------
+
+Software de Optimização de Redes - Relax4:
+
+
+Para a optimização de modelos de redes, sugere-se a utilização do package Relax4, que está contido no ficheiro
+zip anexo, juntamente com o respectivo guia de utilização.
+
+Em alternativa, a compilação (usando, por exemplo, o compilador g77) do ficheiro fonte (em Fortran),
+existente no site original (ver guia de utilização) pode ser uma alternativa para utilizadores de Mac.
+
+Nota: Se utilizar o DOS, recomenda-se o uso de nomes dos ficheiros que contenham oito ou menos caracteres,
+conforme é convenção do DOS.
+

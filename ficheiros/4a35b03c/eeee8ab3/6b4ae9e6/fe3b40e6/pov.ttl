@@ -1,0 +1,742 @@
+@prefix : <http://www.semanticweb.org/filip/ontologies/2020/1/UMbook#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <http://www.semanticweb.org/filip/ontologies/2020/1/UMbook> .
+
+<http://www.semanticweb.org/filip/ontologies/2020/1/UMbook> rdf:type owl:Ontology .
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://www.semanticweb.org/filip/ontologies/2020/1/UMbook#PussuiFicheiro
+:PussuiFicheiro rdf:type owl:ObjectProperty ;
+                owl:inverseOf :guardadoEm ;
+                rdfs:domain :Ano ,
+                            :Cadeira ,
+                            :Curso ,
+                            :Grupo ,
+                            :Mensagem ,
+                            :Publicacao ;
+                rdfs:range :Ficheiro .
+
+
+###  http://www.semanticweb.org/filip/ontologies/2020/1/UMbook#administra
+:administra rdf:type owl:ObjectProperty ;
+            owl:inverseOf :éAdministradoPor ;
+            rdfs:domain :Admin ;
+            rdfs:range :Ano ,
+                       :Cadeira ,
+                       :Curso ,
+                       :Grupo .
+
+
+###  http://www.semanticweb.org/filip/ontologies/2020/1/UMbook#comenta
+:comenta rdf:type owl:ObjectProperty ;
+         owl:inverseOf :éComentadoPor ;
+         rdfs:domain :Admin ,
+                     :Aluno ,
+                     :Responsavel ;
+         rdfs:range :Comentario .
+
+
+###  http://www.semanticweb.org/filip/ontologies/2020/1/UMbook#comentadoEm
+:comentadoEm rdf:type owl:ObjectProperty ;
+             owl:inverseOf :possuiComentario .
+
+
+###  http://www.semanticweb.org/filip/ontologies/2020/1/UMbook#envia
+:envia rdf:type owl:ObjectProperty ;
+       owl:inverseOf :éEnviada ;
+       rdfs:domain :Admin ,
+                   :Aluno ,
+                   :Responsavel ;
+       rdfs:range :Mensagem .
+
+
+###  http://www.semanticweb.org/filip/ontologies/2020/1/UMbook#fazParteCurso
+:fazParteCurso rdf:type owl:ObjectProperty ;
+               owl:inverseOf :pussuiAno .
+
+
+###  http://www.semanticweb.org/filip/ontologies/2020/1/UMbook#frequenta
+:frequenta rdf:type owl:ObjectProperty ;
+           owl:inverseOf :éFrequentadoPor ;
+           rdfs:domain :Admin ,
+                       :Aluno ,
+                       :Responsavel ;
+           rdfs:range :Ano ,
+                      :Cadeira ,
+                      :Curso ,
+                      :Grupo .
+
+
+###  http://www.semanticweb.org/filip/ontologies/2020/1/UMbook#gere
+:gere rdf:type owl:ObjectProperty ;
+      owl:inverseOf :éGeridoPor ;
+      rdfs:domain :Responsavel ;
+      rdfs:range :Ano .
+
+
+###  http://www.semanticweb.org/filip/ontologies/2020/1/UMbook#guardadoEm
+:guardadoEm rdf:type owl:ObjectProperty ;
+            rdfs:domain :Ficheiro ;
+            rdfs:range :Mensagem ,
+                       :Publicacao .
+
+
+###  http://www.semanticweb.org/filip/ontologies/2020/1/UMbook#leciona
+:leciona rdf:type owl:ObjectProperty ;
+         owl:inverseOf :éLecionadaEm ;
+         rdfs:domain :Ano ;
+         rdfs:range :Cadeira .
+
+
+###  http://www.semanticweb.org/filip/ontologies/2020/1/UMbook#participa
+:participa rdf:type owl:ObjectProperty ;
+           owl:inverseOf :pussuiParticipantes ;
+           rdfs:domain :Admin ,
+                       :Aluno ,
+                       :Responsavel ;
+           rdfs:range :Conversa .
+
+
+###  http://www.semanticweb.org/filip/ontologies/2020/1/UMbook#pertence
+:pertence rdf:type owl:ObjectProperty ;
+          owl:inverseOf :pussuiMensagem ;
+          rdfs:domain :Mensagem ;
+          rdfs:range :Conversa .
+
+
+###  http://www.semanticweb.org/filip/ontologies/2020/1/UMbook#possuiComentario
+:possuiComentario rdf:type owl:ObjectProperty ;
+                  rdfs:domain :Publicacao ;
+                  rdfs:range :Comentario .
+
+
+###  http://www.semanticweb.org/filip/ontologies/2020/1/UMbook#publica
+:publica rdf:type owl:ObjectProperty ;
+         owl:inverseOf :éPublicadoPor ;
+         rdfs:domain :Admin ,
+                     :Aluno ,
+                     :Responsavel ;
+         rdfs:range :Publicacao .
+
+
+###  http://www.semanticweb.org/filip/ontologies/2020/1/UMbook#pussuiAno
+:pussuiAno rdf:type owl:ObjectProperty ;
+           rdfs:domain :Curso ;
+           rdfs:range :Ano .
+
+
+###  http://www.semanticweb.org/filip/ontologies/2020/1/UMbook#pussuiMensagem
+:pussuiMensagem rdf:type owl:ObjectProperty .
+
+
+###  http://www.semanticweb.org/filip/ontologies/2020/1/UMbook#pussuiParticipantes
+:pussuiParticipantes rdf:type owl:ObjectProperty .
+
+
+###  http://www.semanticweb.org/filip/ontologies/2020/1/UMbook#pussuiPublicacao
+:pussuiPublicacao rdf:type owl:ObjectProperty ;
+                  owl:inverseOf :éPublicadaEm ;
+                  rdfs:domain :Ano ,
+                              :Cadeira ,
+                              :Curso ,
+                              :Grupo ;
+                  rdfs:range :Publicacao .
+
+
+###  http://www.semanticweb.org/filip/ontologies/2020/1/UMbook#éAdministradoPor
+:éAdministradoPor rdf:type owl:ObjectProperty .
+
+
+###  http://www.semanticweb.org/filip/ontologies/2020/1/UMbook#éAmigoDe
+:éAmigoDe rdf:type owl:ObjectProperty ;
+          rdfs:domain :Admin ,
+                      :Aluno ,
+                      :Responsavel ;
+          rdfs:range :Admin ,
+                     :Aluno ,
+                     :Responsavel .
+
+
+###  http://www.semanticweb.org/filip/ontologies/2020/1/UMbook#éComentadoPor
+:éComentadoPor rdf:type owl:ObjectProperty .
+
+
+###  http://www.semanticweb.org/filip/ontologies/2020/1/UMbook#éEnviada
+:éEnviada rdf:type owl:ObjectProperty .
+
+
+###  http://www.semanticweb.org/filip/ontologies/2020/1/UMbook#éFrequentadoPor
+:éFrequentadoPor rdf:type owl:ObjectProperty .
+
+
+###  http://www.semanticweb.org/filip/ontologies/2020/1/UMbook#éGeridoPor
+:éGeridoPor rdf:type owl:ObjectProperty .
+
+
+###  http://www.semanticweb.org/filip/ontologies/2020/1/UMbook#éLecionadaEm
+:éLecionadaEm rdf:type owl:ObjectProperty .
+
+
+###  http://www.semanticweb.org/filip/ontologies/2020/1/UMbook#éPublicadaEm
+:éPublicadaEm rdf:type owl:ObjectProperty .
+
+
+###  http://www.semanticweb.org/filip/ontologies/2020/1/UMbook#éPublicadoPor
+:éPublicadoPor rdf:type owl:ObjectProperty .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  http://www.semanticweb.org/filip/ontologies/2020/1/UMbook#anoLetivo
+:anoLetivo rdf:type owl:DatatypeProperty ;
+           rdfs:domain :Ano .
+
+
+###  http://www.semanticweb.org/filip/ontologies/2020/1/UMbook#conteudo
+:conteudo rdf:type owl:DatatypeProperty ;
+          rdfs:domain :Comentario ,
+                      :Mensagem ,
+                      :Publicacao .
+
+
+###  http://www.semanticweb.org/filip/ontologies/2020/1/UMbook#data
+:data rdf:type owl:DatatypeProperty ;
+      rdfs:domain :Comentario ,
+                  :Mensagem ,
+                  :Publicacao .
+
+
+###  http://www.semanticweb.org/filip/ontologies/2020/1/UMbook#dataNasc
+:dataNasc rdf:type owl:DatatypeProperty ;
+          rdfs:domain :Admin ,
+                      :Aluno ,
+                      :Responsavel .
+
+
+###  http://www.semanticweb.org/filip/ontologies/2020/1/UMbook#gostos
+:gostos rdf:type owl:DatatypeProperty ;
+        rdfs:domain :Comentario ,
+                    :Publicacao .
+
+
+###  http://www.semanticweb.org/filip/ontologies/2020/1/UMbook#nome
+:nome rdf:type owl:DatatypeProperty ;
+      rdfs:domain :Admin ,
+                  :Aluno ,
+                  :Ano ,
+                  :Cadeira ,
+                  :Ficheiro ,
+                  :Responsavel .
+
+
+###  http://www.semanticweb.org/filip/ontologies/2020/1/UMbook#numAluno
+:numAluno rdf:type owl:DatatypeProperty ;
+          rdfs:domain :Admin ,
+                      :Aluno ,
+                      :Responsavel .
+
+
+###  http://www.semanticweb.org/filip/ontologies/2020/1/UMbook#numTelemovel
+:numTelemovel rdf:type owl:DatatypeProperty ;
+              rdfs:domain :Admin ,
+                          :Aluno ,
+                          :Responsavel .
+
+
+###  http://www.semanticweb.org/filip/ontologies/2020/1/UMbook#pass
+:pass rdf:type owl:DatatypeProperty ;
+      rdfs:domain :Admin ,
+                  :Aluno ,
+                  :Responsavel .
+
+
+###  http://www.semanticweb.org/filip/ontologies/2020/1/UMbook#path
+:path rdf:type owl:DatatypeProperty ;
+      rdfs:subPropertyOf owl:topDataProperty ;
+      rdfs:domain :Ficheiro .
+
+
+###  http://www.semanticweb.org/filip/ontologies/2020/1/UMbook#sexo
+:sexo rdf:type owl:DatatypeProperty ;
+      rdfs:domain :Admin ,
+                  :Aluno ,
+                  :Responsavel .
+
+
+###  http://www.semanticweb.org/filip/ontologies/2020/1/UMbook#size
+:size rdf:type owl:DatatypeProperty ;
+      rdfs:domain :Ficheiro .
+
+
+###  http://www.semanticweb.org/filip/ontologies/2020/1/UMbook#tags
+:tags rdf:type owl:DatatypeProperty .
+
+
+###  http://www.semanticweb.org/filip/ontologies/2020/1/UMbook#type
+:type rdf:type owl:DatatypeProperty ;
+      rdfs:domain :Ficheiro .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://www.semanticweb.org/filip/ontologies/2020/1/UMbook#Admin
+:Admin rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/filip/ontologies/2020/1/UMbook#Aluno
+:Aluno rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/filip/ontologies/2020/1/UMbook#Ano
+:Ano rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/filip/ontologies/2020/1/UMbook#Cadeira
+:Cadeira rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/filip/ontologies/2020/1/UMbook#Comentario
+:Comentario rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/filip/ontologies/2020/1/UMbook#Conversa
+:Conversa rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/filip/ontologies/2020/1/UMbook#Curso
+:Curso rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/filip/ontologies/2020/1/UMbook#Ficheiro
+:Ficheiro rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/filip/ontologies/2020/1/UMbook#Grupo
+:Grupo rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/filip/ontologies/2020/1/UMbook#Mensagem
+:Mensagem rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/filip/ontologies/2020/1/UMbook#Notificacao
+:Notificacao rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/filip/ontologies/2020/1/UMbook#Publicacao
+:Publicacao rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/filip/ontologies/2020/1/UMbook#Responsavel
+:Responsavel rdf:type owl:Class .
+
+
+#################################################################
+#    Individuals
+#################################################################
+
+###  http://www.semanticweb.org/filip/ontologies/2020/1/UMbook#Algebra_Linear
+:Algebra_Linear rdf:type owl:NamedIndividual ,
+                         :Cadeira ;
+                :nome "Álgebra Linear" .
+
+
+###  http://www.semanticweb.org/filip/ontologies/2020/1/UMbook#Analise
+:Analise rdf:type owl:NamedIndividual ,
+                  :Cadeira ;
+         :nome "Análise Matemática" .
+
+
+###  http://www.semanticweb.org/filip/ontologies/2020/1/UMbook#Arquitetura_Computadores
+:Arquitetura_Computadores rdf:type owl:NamedIndividual ,
+                                   :Cadeira ;
+                          :nome "Arquitetura de Computadores" .
+
+
+###  http://www.semanticweb.org/filip/ontologies/2020/1/UMbook#Calculo
+:Calculo rdf:type owl:NamedIndividual ,
+                  :Cadeira ;
+         :nome "Cálculo" .
+
+
+###  http://www.semanticweb.org/filip/ontologies/2020/1/UMbook#Calculo_Programas
+:Calculo_Programas rdf:type owl:NamedIndividual ,
+                            :Cadeira ;
+                   :nome "Cálculo de Programas" .
+
+
+###  http://www.semanticweb.org/filip/ontologies/2020/1/UMbook#Comunicacao_Dados
+:Comunicacao_Dados rdf:type owl:NamedIndividual ,
+                            :Cadeira ;
+                   :nome "Comunicação de Dados" .
+
+
+###  http://www.semanticweb.org/filip/ontologies/2020/1/UMbook#EES
+:EES rdf:type owl:NamedIndividual ,
+              :Cadeira ;
+     :nome "Elementos Engenharia Sistemas" .
+
+
+###  http://www.semanticweb.org/filip/ontologies/2020/1/UMbook#Eletromagnetismo
+:Eletromagnetismo rdf:type owl:NamedIndividual ,
+                           :Cadeira ;
+                  :nome "Eletromagnetismo" .
+
+
+###  http://www.semanticweb.org/filip/ontologies/2020/1/UMbook#Engenharia_Economica
+:Engenharia_Economica rdf:type owl:NamedIndividual ,
+                               :Cadeira ;
+                      :nome "Engenharia Económica" .
+
+
+###  http://www.semanticweb.org/filip/ontologies/2020/1/UMbook#Estatistica_Aplicada
+:Estatistica_Aplicada rdf:type owl:NamedIndividual ,
+                               :Cadeira ;
+                      :nome "Estatística Aplicada" .
+
+
+###  http://www.semanticweb.org/filip/ontologies/2020/1/UMbook#ISD
+:ISD rdf:type owl:NamedIndividual ,
+              :Cadeira ;
+     :nome "Introdução aos Sistemas Dinâmicos" .
+
+
+###  http://www.semanticweb.org/filip/ontologies/2020/1/UMbook#LI1
+:LI1 rdf:type owl:NamedIndividual ,
+              :Cadeira ;
+     :nome "Laboratórios De Informática I" .
+
+
+###  http://www.semanticweb.org/filip/ontologies/2020/1/UMbook#LI2
+:LI2 rdf:type owl:NamedIndividual ,
+              :Cadeira ;
+     :nome "Laboratórios de Informática II" .
+
+
+###  http://www.semanticweb.org/filip/ontologies/2020/1/UMbook#LI3
+:LI3 rdf:type owl:NamedIndividual ,
+              :Cadeira ;
+     :nome "Laboratórios de Informática III" .
+
+
+###  http://www.semanticweb.org/filip/ontologies/2020/1/UMbook#Logica
+:Logica rdf:type owl:NamedIndividual ,
+                 :Cadeira ;
+        :nome "Lógica" .
+
+
+###  http://www.semanticweb.org/filip/ontologies/2020/1/UMbook#MIEI
+:MIEI rdf:type owl:NamedIndividual ,
+               :Curso ;
+      :pussuiAno :Primeiro_Ano ,
+                 :Segundo_Ano ;
+      :nome "Mestrado Integrado em Engenharia Informática" .
+
+
+###  http://www.semanticweb.org/filip/ontologies/2020/1/UMbook#POO
+:POO rdf:type owl:NamedIndividual ,
+              :Cadeira ;
+     :nome "Programação Orientada aos Objetos" .
+
+
+###  http://www.semanticweb.org/filip/ontologies/2020/1/UMbook#Primeiro_Ano
+:Primeiro_Ano rdf:type owl:NamedIndividual ,
+                       :Ano ;
+              :leciona :Algebra_Linear ,
+                       :Analise ,
+                       :Calculo ,
+                       :EES ,
+                       :LI1 ,
+                       :LI2 ,
+                       :Logica ,
+                       :Programacao_Funcional ,
+                       :Programacao_Imperativa ,
+                       :Sistemas_Computacao ,
+                       :TFM ,
+                       :TMD ;
+              :anoLetivo "2019-2020" ;
+              :nome "Primeiro Ano" .
+
+
+###  http://www.semanticweb.org/filip/ontologies/2020/1/UMbook#Programacao_Funcional
+:Programacao_Funcional rdf:type owl:NamedIndividual ,
+                                :Cadeira ;
+                       :nome "Programação Funcional" .
+
+
+###  http://www.semanticweb.org/filip/ontologies/2020/1/UMbook#Programacao_Imperativa
+:Programacao_Imperativa rdf:type owl:NamedIndividual ,
+                                 :Cadeira ;
+                        :nome "Programação Imperativa" .
+
+
+###  http://www.semanticweb.org/filip/ontologies/2020/1/UMbook#Segundo_Ano
+:Segundo_Ano rdf:type owl:NamedIndividual ,
+                      :Ano ;
+             :leciona :Arquitetura_Computadores ,
+                      :Calculo_Programas ,
+                      :Comunicacao_Dados ,
+                      :Eletromagnetismo ,
+                      :Engenharia_Economica ,
+                      :Estatistica_Aplicada ,
+                      :ISD ,
+                      :LI3 ,
+                      :POO ,
+                      :Sistemas_Operativos ,
+                      <http://www.semanticweb.org/filip/ontologies/2020/1/UMbook#Algortimos&Complexidade> ;
+             :anoLetivo "2019-2020" ;
+             :nome "Segundo Ano" .
+
+
+###  http://www.semanticweb.org/filip/ontologies/2020/1/UMbook#Sistemas_Computacao
+:Sistemas_Computacao rdf:type owl:NamedIndividual ,
+                              :Cadeira ;
+                     :nome "Sistemas de Computação" .
+
+
+###  http://www.semanticweb.org/filip/ontologies/2020/1/UMbook#Sistemas_Operativos
+:Sistemas_Operativos rdf:type owl:NamedIndividual ,
+                              :Cadeira ;
+                     :nome "Sistemas Operativos" .
+
+
+###  http://www.semanticweb.org/filip/ontologies/2020/1/UMbook#TFM
+:TFM rdf:type owl:NamedIndividual ,
+              :Cadeira ;
+     :nome "Tópicos de Física Moderna" .
+
+
+###  http://www.semanticweb.org/filip/ontologies/2020/1/UMbook#TMD
+:TMD rdf:type owl:NamedIndividual ,
+              :Cadeira ;
+     :nome "Tópicos de Matemática Discreta" .
+
+
+###  http://www.semanticweb.org/filip/ontologies/2020/1/UMbook#UM
+:UM rdf:type owl:NamedIndividual ,
+             :Curso ;
+    :nome "Universidade do Minho" .
+
+
+###  http://www.semanticweb.org/filip/ontologies/2020/1/UMbook#admin01
+:admin01 rdf:type owl:NamedIndividual ,
+                  :Admin ;
+         :dataNasc ""^^xsd:string ;
+         :nome "Admin"^^xsd:string ;
+         :numAluno "Desconhecido"^^xsd:string ;
+         :numTelemovel "933333333"^^xsd:string ;
+         :pass "Admin"^^xsd:string ;
+         :sexo "Desconhecido"^^xsd:string .
+
+
+###  http://www.semanticweb.org/filip/ontologies/2020/1/UMbook#comentario001
+:comentario001 rdf:type owl:NamedIndividual ,
+                        :Comentario ;
+               :comentadoEm :publicacao002 ;
+               :éComentadoPor <http://www.semanticweb.org/filip/ontologies/2020/1/UMbook#lguilhermem@hotmail.com> ;
+               :conteudo "Esqueci-me da minha palavra-passe, como a posso recuperar?" ;
+               :data "2020-04-16" ;
+               :gostos 0 .
+
+
+###  http://www.semanticweb.org/filip/ontologies/2020/1/UMbook#conversa001
+:conversa001 rdf:type owl:NamedIndividual ,
+                      :Conversa ;
+             :pussuiMensagem :mensagem001 ,
+                             :mensagem002 ;
+             :pussuiParticipantes <http://www.semanticweb.org/filip/ontologies/2020/1/UMbook#a82088@alunos.uminho.pt> ,
+                                  <http://www.semanticweb.org/filip/ontologies/2020/1/UMbook#lguilhermem@hotmail.com> .
+
+
+###  http://www.semanticweb.org/filip/ontologies/2020/1/UMbook#conversa002
+:conversa002 rdf:type owl:NamedIndividual ,
+                      :Conversa ;
+             :pussuiMensagem :mensagem003 ,
+                             :mensagem004 ;
+             :pussuiParticipantes <http://www.semanticweb.org/filip/ontologies/2020/1/UMbook#a82088@alunos.uminho.pt> ,
+                                  <http://www.semanticweb.org/filip/ontologies/2020/1/UMbook#joniboy@hotmail.com> .
+
+
+###  http://www.semanticweb.org/filip/ontologies/2020/1/UMbook#conversa003
+:conversa003 rdf:type owl:NamedIndividual ,
+                      :Conversa ;
+             :pussuiMensagem :mensagem005 ,
+                             :mensagem006 ;
+             :pussuiParticipantes <http://www.semanticweb.org/filip/ontologies/2020/1/UMbook#flipcunha@gmail.com> ,
+                                  <http://www.semanticweb.org/filip/ontologies/2020/1/UMbook#lguilhermem@hotmail.com> .
+
+
+###  http://www.semanticweb.org/filip/ontologies/2020/1/UMbook#ficheiro001
+:ficheiro001 rdf:type owl:NamedIndividual ,
+                      :Ficheiro ;
+             :guardadoEm :publicacao001 ;
+             :nome "oslusiadas.pdf" ;
+             :path "ficheiros/oslusiadas.pdf" ;
+             :size 100 ;
+             :type "pdf" .
+
+
+###  http://www.semanticweb.org/filip/ontologies/2020/1/UMbook#ficheiro002
+:ficheiro002 rdf:type owl:NamedIndividual ,
+                      :Ficheiro ;
+             :guardadoEm :publicacao001 ;
+             :nome "1teste.PNG" ;
+             :path "ficheiros/1teste.PNG" ;
+             :size 100 ;
+             :type "PNG" .
+
+
+###  http://www.semanticweb.org/filip/ontologies/2020/1/UMbook#mensagem001
+:mensagem001 rdf:type owl:NamedIndividual ,
+                      :Mensagem ;
+             :conteudo "Olá, Joe! Tudo bem?" ;
+             :data "2020-04-16" .
+
+
+###  http://www.semanticweb.org/filip/ontologies/2020/1/UMbook#mensagem002
+:mensagem002 rdf:type owl:NamedIndividual ,
+                      :Mensagem ;
+             :conteudo "Olá, mano! Tudo e contigo?" ;
+             :data "2020-04-16" .
+
+
+###  http://www.semanticweb.org/filip/ontologies/2020/1/UMbook#mensagem003
+:mensagem003 rdf:type owl:NamedIndividual ,
+                      :Mensagem ;
+             :conteudo "já viste aquela música do Sombraa?" ;
+             :data "2020-04-16" .
+
+
+###  http://www.semanticweb.org/filip/ontologies/2020/1/UMbook#mensagem004
+:mensagem004 rdf:type owl:NamedIndividual ,
+                      :Mensagem ;
+             :conteudo "Já, mano! Fella" ;
+             :data "2020-04-16" .
+
+
+###  http://www.semanticweb.org/filip/ontologies/2020/1/UMbook#mensagem005
+:mensagem005 rdf:type owl:NamedIndividual ,
+                      :Mensagem ;
+             :conteudo "e já está a chegar o comboio" ;
+             :data "2020-04-16" .
+
+
+###  http://www.semanticweb.org/filip/ontologies/2020/1/UMbook#mensagem006
+:mensagem006 rdf:type owl:NamedIndividual ,
+                      :Mensagem ;
+             :conteudo "já vou descer mano" ;
+             :data "2020-04-16" .
+
+
+###  http://www.semanticweb.org/filip/ontologies/2020/1/UMbook#publicacao001
+:publicacao001 rdf:type owl:NamedIndividual ,
+                        :Publicacao ;
+               :PussuiFicheiro :ficheiro001 ;
+               :éPublicadaEm :ISD ;
+               :éPublicadoPor :admin01 ;
+               :conteudo "ficheiro" ;
+               :data "2020-04-13" ;
+               :gostos 20 .
+
+
+###  http://www.semanticweb.org/filip/ontologies/2020/1/UMbook#publicacao002
+:publicacao002 rdf:type owl:NamedIndividual ,
+                        :Publicacao ;
+               :éPublicadaEm :Segundo_Ano ;
+               :éPublicadoPor <http://www.semanticweb.org/filip/ontologies/2020/1/UMbook#joniboy@hotmail.com> ;
+               :conteudo "Estejam atentos ao swap para os horários." ;
+               :data "2020-04-16" ;
+               :gostos 2 .
+
+
+###  http://www.semanticweb.org/filip/ontologies/2020/1/UMbook#Algortimos&Complexidade
+<http://www.semanticweb.org/filip/ontologies/2020/1/UMbook#Algortimos&Complexidade> rdf:type owl:NamedIndividual ,
+                                                                                             :Cadeira ;
+                                                                                    :nome "Algorítmos e Complexidade" .
+
+
+###  http://www.semanticweb.org/filip/ontologies/2020/1/UMbook#a82088@alunos.uminho.pt
+<http://www.semanticweb.org/filip/ontologies/2020/1/UMbook#a82088@alunos.uminho.pt> rdf:type owl:NamedIndividual ,
+                                                                                             :Aluno ;
+                                                                                    :envia :mensagem002 ,
+                                                                                           :mensagem004 ;
+                                                                                    :frequenta :MIEI ,
+                                                                                               :Primeiro_Ano ;
+                                                                                    :dataNasc "14-02-1998"^^xsd:string ;
+                                                                                    :nome "Luís Braga"^^xsd:string ;
+                                                                                    :numAluno "a82088"^^xsd:string ;
+                                                                                    :numTelemovel "930405069"^^xsd:string ;
+                                                                                    :pass "BragaMen"^^xsd:string ;
+                                                                                    :sexo "Masculino"^^xsd:string .
+
+
+###  http://www.semanticweb.org/filip/ontologies/2020/1/UMbook#flipcunha@gmail.com
+<http://www.semanticweb.org/filip/ontologies/2020/1/UMbook#flipcunha@gmail.com> rdf:type owl:NamedIndividual ,
+                                                                                         :Aluno ,
+                                                                                         :Responsavel ;
+                                                                                :envia :mensagem005 ;
+                                                                                :frequenta :MIEI ;
+                                                                                :gere :Primeiro_Ano ;
+                                                                                :dataNasc "06-02-1997" ;
+                                                                                :nome "Filipe Cunha" ;
+                                                                                :numAluno "a83099" ;
+                                                                                :numTelemovel 919488654 ,
+                                                                                              934059688 ;
+                                                                                :pass 123456 ;
+                                                                                :sexo "Masculino" .
+
+
+###  http://www.semanticweb.org/filip/ontologies/2020/1/UMbook#joniboy@hotmail.com
+<http://www.semanticweb.org/filip/ontologies/2020/1/UMbook#joniboy@hotmail.com> rdf:type owl:NamedIndividual ,
+                                                                                         :Aluno ;
+                                                                                :envia :mensagem003 ;
+                                                                                :frequenta :MIEI ;
+                                                                                :gere :Segundo_Ano ;
+                                                                                :dataNasc "12-11-1998" ;
+                                                                                :nome "João Nunes" ;
+                                                                                :numAluno "a82300" ;
+                                                                                :numTelemovel 913958634 ;
+                                                                                :pass 123456 ;
+                                                                                :sexo "Masculino" .
+
+
+###  http://www.semanticweb.org/filip/ontologies/2020/1/UMbook#lguilhermem@hotmail.com
+<http://www.semanticweb.org/filip/ontologies/2020/1/UMbook#lguilhermem@hotmail.com> rdf:type owl:NamedIndividual ,
+                                                                                             :Aluno ;
+                                                                                    :envia :mensagem001 ,
+                                                                                           :mensagem006 ;
+                                                                                    :frequenta :MIEI ,
+                                                                                               :Primeiro_Ano ;
+                                                                                    :dataNasc "15-10-1998"^^xsd:string ;
+                                                                                    :nome "Luís Martins"^^xsd:string ;
+                                                                                    :numAluno "a82298"^^xsd:string ;
+                                                                                    :numTelemovel "930492785"^^xsd:string ;
+                                                                                    :pass "12345678"^^xsd:string ;
+                                                                                    :sexo "Masculino"^^xsd:string .
+
+
+###  http://www.semanticweb.org/filip/ontologies/2020/1/UMbook#olmofred@hotmail.com
+<http://www.semanticweb.org/filip/ontologies/2020/1/UMbook#olmofred@hotmail.com> rdf:type owl:NamedIndividual ,
+                                                                                          :Aluno ;
+                                                                                 :frequenta :MIEI ,
+                                                                                            :Segundo_Ano ;
+                                                                                 :dataNasc "01-01-1996" ;
+                                                                                 :nome "Frederico Sousa" ;
+                                                                                 :numAluno "a76465" ;
+                                                                                 :numTelemovel 919458385 ;
+                                                                                 :pass 123456 ;
+                                                                                 :sexo "Masculino" .
+
+
+###  Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi

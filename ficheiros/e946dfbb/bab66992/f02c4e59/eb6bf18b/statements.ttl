@@ -1,0 +1,1630 @@
+@prefix : <http://www.semanticweb.org/filip/ontologies/2020/1/UMbook#> .
+@prefix fn: <http://www.w3.org/2005/xpath-functions#> .
+@prefix gn: <http://www.geonames.org/ontology#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix wgs: <http://www.w3.org/2003/01/geo/wgs84_pos#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix sesame: <http://www.openrdf.org/schema/sesame#> .
+@prefix noInferences: <http://www.ontotext.com/explicit> .
+@base <http://www.semanticweb.org/filip/ontologies/2020/1/UMbook> .
+
+<http://www.semanticweb.org/filip/ontologies/2020/1/UMbook> rdf:type owl:Ontology .
+
+#################################################################
+#    Annotation properties
+#################################################################
+
+###  http://www.semanticweb.org/filip/ontologies/2020/1/UMbook#armezenadoEm
+:armezenadoEm rdf:type owl:AnnotationProperty .
+
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://www.semanticweb.org/filip/ontologies/2020/1/UMbook#PussuiFicheiro
+:PussuiFicheiro rdf:type owl:ObjectProperty ;
+                owl:inverseOf :guardadoEm ;
+                rdfs:domain :Cadeira ,
+                            :Pasta ,
+                            :Publicacao ;
+                rdfs:range :Ficheiro .
+
+
+###  http://www.semanticweb.org/filip/ontologies/2020/1/UMbook#administra
+:administra rdf:type owl:ObjectProperty ;
+            owl:inverseOf :éAdministradoPor ;
+            rdfs:domain :Admin ;
+            rdfs:range :Ano ,
+                       :Cadeira ,
+                       :Curso .
+
+
+###  http://www.semanticweb.org/filip/ontologies/2020/1/UMbook#adoradaPor
+:adoradaPor rdf:type owl:ObjectProperty ;
+            owl:inverseOf :gostaDe .
+
+
+###  http://www.semanticweb.org/filip/ontologies/2020/1/UMbook#armazenadoEm
+:armazenadoEm rdf:type owl:ObjectProperty ;
+              rdfs:domain :Ficheiro ;
+              rdfs:range :Cadeira .
+
+
+###  http://www.semanticweb.org/filip/ontologies/2020/1/UMbook#comenta
+:comenta rdf:type owl:ObjectProperty ;
+         owl:inverseOf :éComentadoPor ;
+         rdfs:domain :Admin ,
+                     :Aluno ,
+                     :Responsavel ;
+         rdfs:range :Comentario .
+
+
+###  http://www.semanticweb.org/filip/ontologies/2020/1/UMbook#comentadoEm
+:comentadoEm rdf:type owl:ObjectProperty ;
+             owl:inverseOf :possuiComentario .
+
+
+###  http://www.semanticweb.org/filip/ontologies/2020/1/UMbook#envia
+:envia rdf:type owl:ObjectProperty ;
+       owl:inverseOf :éEnviada ;
+       rdfs:domain :Admin ,
+                   :Aluno ,
+                   :Responsavel ;
+       rdfs:range :Mensagem .
+
+
+###  http://www.semanticweb.org/filip/ontologies/2020/1/UMbook#fazParteCurso
+:fazParteCurso rdf:type owl:ObjectProperty ;
+               owl:inverseOf :pussuiAno .
+
+
+###  http://www.semanticweb.org/filip/ontologies/2020/1/UMbook#fazPedidoAmizade
+:fazPedidoAmizade rdf:type owl:ObjectProperty ;
+                  owl:inverseOf :pedidoAmizadeFeitoPor ;
+                  rdfs:domain :Admin ,
+                              :Aluno ,
+                              :Responsavel ;
+                  rdfs:range :Admin ,
+                             :Aluno ,
+                             :Responsavel .
+
+
+###  http://www.semanticweb.org/filip/ontologies/2020/1/UMbook#frequenta
+:frequenta rdf:type owl:ObjectProperty ;
+           owl:inverseOf :éFrequentadoPor ;
+           rdfs:domain :Admin ,
+                       :Aluno ,
+                       :Responsavel ;
+           rdfs:range :Ano ,
+                      :Cadeira ,
+                      :Curso .
+
+
+###  http://www.semanticweb.org/filip/ontologies/2020/1/UMbook#gere
+:gere rdf:type owl:ObjectProperty ;
+      owl:inverseOf :éGeridoPor ;
+      rdfs:domain :Responsavel ;
+      rdfs:range :Ano .
+
+
+###  http://www.semanticweb.org/filip/ontologies/2020/1/UMbook#gostaDe
+:gostaDe rdf:type owl:ObjectProperty ;
+         rdfs:domain :Admin ,
+                     :Aluno ,
+                     :Responsavel ;
+         rdfs:range :Comentario ,
+                    :Publicacao .
+
+
+###  http://www.semanticweb.org/filip/ontologies/2020/1/UMbook#guardadoEm
+:guardadoEm rdf:type owl:ObjectProperty ;
+            rdfs:domain :Ficheiro ;
+            rdfs:range :Mensagem ,
+                       :Publicacao .
+
+
+###  http://www.semanticweb.org/filip/ontologies/2020/1/UMbook#leciona
+:leciona rdf:type owl:ObjectProperty ;
+         owl:inverseOf :éLecionadaEm ;
+         rdfs:domain :Ano ;
+         rdfs:range :Cadeira .
+
+
+###  http://www.semanticweb.org/filip/ontologies/2020/1/UMbook#organiza
+:organiza rdf:type owl:ObjectProperty ;
+          owl:inverseOf :parceriaCom .
+
+
+###  http://www.semanticweb.org/filip/ontologies/2020/1/UMbook#parceriaCom
+:parceriaCom rdf:type owl:ObjectProperty ;
+             rdfs:domain :Evento ;
+             rdfs:range :Curso .
+
+
+###  http://www.semanticweb.org/filip/ontologies/2020/1/UMbook#participa
+:participa rdf:type owl:ObjectProperty ;
+           owl:inverseOf :pussuiParticipantes ;
+           rdfs:domain :Admin ,
+                       :Aluno ,
+                       :Responsavel ;
+           rdfs:range :Conversa .
+
+
+###  http://www.semanticweb.org/filip/ontologies/2020/1/UMbook#pedidoAmizadeFeitoPor
+:pedidoAmizadeFeitoPor rdf:type owl:ObjectProperty .
+
+
+###  http://www.semanticweb.org/filip/ontologies/2020/1/UMbook#pertence
+:pertence rdf:type owl:ObjectProperty ;
+          owl:inverseOf :pussuiMensagem ;
+          rdfs:domain :Mensagem ;
+          rdfs:range :Conversa .
+
+
+###  http://www.semanticweb.org/filip/ontologies/2020/1/UMbook#possuiComentario
+:possuiComentario rdf:type owl:ObjectProperty ;
+                  rdfs:domain :Publicacao ;
+                  rdfs:range :Comentario .
+
+
+###  http://www.semanticweb.org/filip/ontologies/2020/1/UMbook#possuiPasta
+:possuiPasta rdf:type owl:ObjectProperty ;
+             owl:inverseOf :éPossuidoPor ;
+             rdfs:domain :Cadeira ,
+                         :Pasta ;
+             rdfs:range :Pasta .
+
+
+###  http://www.semanticweb.org/filip/ontologies/2020/1/UMbook#publica
+:publica rdf:type owl:ObjectProperty ;
+         owl:inverseOf :éPublicadoPor ;
+         rdfs:domain :Admin ,
+                     :Aluno ,
+                     :Responsavel ;
+         rdfs:range :Publicacao .
+
+
+###  http://www.semanticweb.org/filip/ontologies/2020/1/UMbook#pussuiAno
+:pussuiAno rdf:type owl:ObjectProperty ;
+           rdfs:domain :Curso ;
+           rdfs:range :Ano .
+
+
+###  http://www.semanticweb.org/filip/ontologies/2020/1/UMbook#pussuiMensagem
+:pussuiMensagem rdf:type owl:ObjectProperty .
+
+
+###  http://www.semanticweb.org/filip/ontologies/2020/1/UMbook#pussuiParticipantes
+:pussuiParticipantes rdf:type owl:ObjectProperty .
+
+
+###  http://www.semanticweb.org/filip/ontologies/2020/1/UMbook#pussuiPublicacao
+:pussuiPublicacao rdf:type owl:ObjectProperty ;
+                  owl:inverseOf :éPublicadaEm ;
+                  rdfs:domain :Ano ,
+                              :Cadeira ,
+                              :Curso ;
+                  rdfs:range :Publicacao .
+
+
+###  http://www.semanticweb.org/filip/ontologies/2020/1/UMbook#temFoto
+:temFoto rdf:type owl:ObjectProperty ;
+         owl:inverseOf :éFotode ;
+         rdfs:domain :Admin ,
+                     :Aluno ,
+                     :Responsavel ;
+         rdfs:range :Ficheiro .
+
+
+###  http://www.semanticweb.org/filip/ontologies/2020/1/UMbook#temPresenca
+:temPresenca rdf:type owl:ObjectProperty ;
+             owl:inverseOf :vai .
+
+
+###  http://www.semanticweb.org/filip/ontologies/2020/1/UMbook#vai
+:vai rdf:type owl:ObjectProperty ;
+     rdfs:domain :Admin ,
+                 :Aluno ,
+                 :Responsavel ;
+     rdfs:range :Evento .
+
+
+###  http://www.semanticweb.org/filip/ontologies/2020/1/UMbook#éAdministradoPor
+:éAdministradoPor rdf:type owl:ObjectProperty .
+
+
+###  http://www.semanticweb.org/filip/ontologies/2020/1/UMbook#éAmigoDe
+:éAmigoDe rdf:type owl:ObjectProperty ;
+          owl:inverseOf :éAmigoDe ;
+          rdfs:domain :Admin ,
+                      :Aluno ,
+                      :Responsavel ;
+          rdfs:range :Admin ,
+                     :Aluno ,
+                     :Responsavel .
+
+
+###  http://www.semanticweb.org/filip/ontologies/2020/1/UMbook#éComentadoPor
+:éComentadoPor rdf:type owl:ObjectProperty .
+
+
+###  http://www.semanticweb.org/filip/ontologies/2020/1/UMbook#éEnviada
+:éEnviada rdf:type owl:ObjectProperty .
+
+
+###  http://www.semanticweb.org/filip/ontologies/2020/1/UMbook#éFotode
+:éFotode rdf:type owl:ObjectProperty .
+
+
+###  http://www.semanticweb.org/filip/ontologies/2020/1/UMbook#éFrequentadoPor
+:éFrequentadoPor rdf:type owl:ObjectProperty .
+
+
+###  http://www.semanticweb.org/filip/ontologies/2020/1/UMbook#éGeridoPor
+:éGeridoPor rdf:type owl:ObjectProperty .
+
+
+###  http://www.semanticweb.org/filip/ontologies/2020/1/UMbook#éLecionadaEm
+:éLecionadaEm rdf:type owl:ObjectProperty .
+
+
+###  http://www.semanticweb.org/filip/ontologies/2020/1/UMbook#éPossuidoPor
+:éPossuidoPor rdf:type owl:ObjectProperty .
+
+
+###  http://www.semanticweb.org/filip/ontologies/2020/1/UMbook#éPublicadaEm
+:éPublicadaEm rdf:type owl:ObjectProperty .
+
+
+###  http://www.semanticweb.org/filip/ontologies/2020/1/UMbook#éPublicadoPor
+:éPublicadoPor rdf:type owl:ObjectProperty .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  http://www.semanticweb.org/filip/ontologies/2020/1/UMbook#anoLetivo
+:anoLetivo rdf:type owl:DatatypeProperty ;
+           rdfs:domain :Ano .
+
+
+###  http://www.semanticweb.org/filip/ontologies/2020/1/UMbook#conteudo
+:conteudo rdf:type owl:DatatypeProperty ;
+          rdfs:domain :Comentario ,
+                      :Evento ,
+                      :Mensagem ,
+                      :Publicacao .
+
+
+###  http://www.semanticweb.org/filip/ontologies/2020/1/UMbook#data
+:data rdf:type owl:DatatypeProperty ;
+      rdfs:domain :Comentario ,
+                  :Ficheiro ,
+                  :Mensagem ,
+                  :Publicacao .
+
+
+###  http://www.semanticweb.org/filip/ontologies/2020/1/UMbook#dataFim
+:dataFim rdf:type owl:DatatypeProperty ;
+         rdfs:domain :Evento .
+
+
+###  http://www.semanticweb.org/filip/ontologies/2020/1/UMbook#dataInicio
+:dataInicio rdf:type owl:DatatypeProperty ;
+            rdfs:domain :Evento .
+
+
+###  http://www.semanticweb.org/filip/ontologies/2020/1/UMbook#dataNasc
+:dataNasc rdf:type owl:DatatypeProperty ;
+          rdfs:domain :Admin ,
+                      :Aluno ,
+                      :Responsavel .
+
+
+###  http://www.semanticweb.org/filip/ontologies/2020/1/UMbook#gostos
+:gostos rdf:type owl:DatatypeProperty ;
+        rdfs:domain :Comentario ,
+                    :Publicacao .
+
+
+###  http://www.semanticweb.org/filip/ontologies/2020/1/UMbook#nome
+:nome rdf:type owl:DatatypeProperty ;
+      rdfs:domain :Admin ,
+                  :Aluno ,
+                  :Ano ,
+                  :Cadeira ,
+                  :Evento ,
+                  :Ficheiro ,
+                  :Pasta ,
+                  :Responsavel .
+
+
+###  http://www.semanticweb.org/filip/ontologies/2020/1/UMbook#numAluno
+:numAluno rdf:type owl:DatatypeProperty ;
+          rdfs:domain :Admin ,
+                      :Aluno ,
+                      :Responsavel .
+
+
+###  http://www.semanticweb.org/filip/ontologies/2020/1/UMbook#numTelemovel
+:numTelemovel rdf:type owl:DatatypeProperty ;
+              rdfs:domain :Admin ,
+                          :Aluno ,
+                          :Responsavel .
+
+
+###  http://www.semanticweb.org/filip/ontologies/2020/1/UMbook#password
+:password rdf:type owl:DatatypeProperty ;
+          rdfs:domain :Admin ,
+                      :Aluno ,
+                      :Responsavel .
+
+
+###  http://www.semanticweb.org/filip/ontologies/2020/1/UMbook#path
+:path rdf:type owl:DatatypeProperty ;
+      rdfs:subPropertyOf owl:topDataProperty ;
+      rdfs:domain :Ficheiro .
+
+
+###  http://www.semanticweb.org/filip/ontologies/2020/1/UMbook#sexo
+:sexo rdf:type owl:DatatypeProperty ;
+      rdfs:domain :Admin ,
+                  :Aluno ,
+                  :Responsavel .
+
+
+###  http://www.semanticweb.org/filip/ontologies/2020/1/UMbook#size
+:size rdf:type owl:DatatypeProperty ;
+      rdfs:domain :Ficheiro .
+
+
+###  http://www.semanticweb.org/filip/ontologies/2020/1/UMbook#tags
+:tags rdf:type owl:DatatypeProperty .
+
+
+###  http://www.semanticweb.org/filip/ontologies/2020/1/UMbook#titulo
+:titulo rdf:type owl:DatatypeProperty ;
+        rdfs:domain :Publicacao .
+
+
+###  http://www.semanticweb.org/filip/ontologies/2020/1/UMbook#type
+:type rdf:type owl:DatatypeProperty ;
+      rdfs:domain :Ficheiro .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://www.semanticweb.org/filip/ontologies/2020/1/UMbook#Admin
+:Admin rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/filip/ontologies/2020/1/UMbook#Aluno
+:Aluno rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/filip/ontologies/2020/1/UMbook#Ano
+:Ano rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/filip/ontologies/2020/1/UMbook#Cadeira
+:Cadeira rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/filip/ontologies/2020/1/UMbook#Comentario
+:Comentario rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/filip/ontologies/2020/1/UMbook#Conversa
+:Conversa rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/filip/ontologies/2020/1/UMbook#Curso
+:Curso rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/filip/ontologies/2020/1/UMbook#Evento
+:Evento rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/filip/ontologies/2020/1/UMbook#Ficheiro
+:Ficheiro rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/filip/ontologies/2020/1/UMbook#Mensagem
+:Mensagem rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/filip/ontologies/2020/1/UMbook#Notificacao
+:Notificacao rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/filip/ontologies/2020/1/UMbook#Pasta
+:Pasta rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/filip/ontologies/2020/1/UMbook#Publicacao
+:Publicacao rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/filip/ontologies/2020/1/UMbook#Responsavel
+:Responsavel rdf:type owl:Class .
+
+
+#################################################################
+#    Individuals
+#################################################################
+
+###  http://www.semanticweb.org/filip/ontologies/2020/1/UMbook#AEbbZHQ2lXZw2GKZjXXFE
+:AEbbZHQ2lXZw2GKZjXXFE rdf:type owl:NamedIndividual ,
+                                :Ficheiro ;
+                       :data "2020-07-01 17:13:29" ;
+                       :nome "4654_folha2Sistemas.pdf" ;
+                       :path "D:/Github/LEI/apiDados/routes/../ficheiros/b7197609/48aca1b3/53da5d29/c62645cf/4654_folha2Sistemas.pdf" ;
+                       :size "62180" ;
+                       :type "application/pdf" ;
+                       :armezenadoEm :Algebra_Linear .
+
+
+###  http://www.semanticweb.org/filip/ontologies/2020/1/UMbook#Ae3bjpLBiFIwU9pGMwqdh
+:Ae3bjpLBiFIwU9pGMwqdh rdf:type owl:NamedIndividual ,
+                                :Ficheiro ;
+                       :data "2020-07-01 17:13:29" ;
+                       :nome "4671_folha6ValoresVectoresProprios.pdf" ;
+                       :path "D:/Github/LEI/apiDados/routes/../ficheiros/077c908f/a1f7f6f9/4e04dc8c/761c76dc/4671_folha6ValoresVectoresProprios.pdf" ;
+                       :size "58502" ;
+                       :type "application/pdf" ;
+                       :armezenadoEm :Algebra_Linear .
+
+
+###  http://www.semanticweb.org/filip/ontologies/2020/1/UMbook#Algebra_Linear
+:Algebra_Linear rdf:type owl:NamedIndividual ,
+                         :Cadeira ;
+                :nome "Álgebra Linear" .
+
+
+###  http://www.semanticweb.org/filip/ontologies/2020/1/UMbook#Analise
+:Analise rdf:type owl:NamedIndividual ,
+                  :Cadeira ;
+         :nome "Análise Matemática" .
+
+
+###  http://www.semanticweb.org/filip/ontologies/2020/1/UMbook#Arquitetura_Computadores
+:Arquitetura_Computadores rdf:type owl:NamedIndividual ,
+                                   :Cadeira ;
+                          :nome "Arquitetura de Computadores" .
+
+
+###  http://www.semanticweb.org/filip/ontologies/2020/1/UMbook#BNXd5qRM-WEQr7VfDKb1s
+:BNXd5qRM-WEQr7VfDKb1s rdf:type owl:NamedIndividual ,
+                                :Ficheiro ;
+                       :data "2020-07-01 17:13:31" ;
+                       :nome "Exercicios_Espacos_Vectoriais.pdf" ;
+                       :path "D:/Github/LEI/apiDados/routes/../ficheiros/1bb5e406/0f168f19/a64f615a/a061a0a1/Exercicios_Espacos_Vectoriais.pdf" ;
+                       :size "330599" ;
+                       :type "application/pdf" ;
+                       :armezenadoEm :Algebra_Linear .
+
+
+###  http://www.semanticweb.org/filip/ontologies/2020/1/UMbook#BVXi04DYfsmLs1GtaJYOZ
+:BVXi04DYfsmLs1GtaJYOZ rdf:type owl:NamedIndividual ,
+                                :Ficheiro ;
+                       :data "2020-07-01 17:13:32" ;
+                       :nome "ficha1 - Matrizes.pdf" ;
+                       :path "D:/Github/LEI/apiDados/routes/../ficheiros/44c2ca63/d3774f19/6ad8f46f/841c3099/ficha1 - Matrizes.pdf" ;
+                       :size "951504" ;
+                       :type "application/pdf" ;
+                       :armezenadoEm :Algebra_Linear .
+
+
+###  http://www.semanticweb.org/filip/ontologies/2020/1/UMbook#Calculo
+:Calculo rdf:type owl:NamedIndividual ,
+                  :Cadeira ;
+         :nome "Cálculo" .
+
+
+###  http://www.semanticweb.org/filip/ontologies/2020/1/UMbook#Calculo_Programas
+:Calculo_Programas rdf:type owl:NamedIndividual ,
+                            :Cadeira ;
+                   :nome "Cálculo de Programas" .
+
+
+###  http://www.semanticweb.org/filip/ontologies/2020/1/UMbook#Comunicacao_Dados
+:Comunicacao_Dados rdf:type owl:NamedIndividual ,
+                            :Cadeira ;
+                   :nome "Comunicação de Dados" .
+
+
+###  http://www.semanticweb.org/filip/ontologies/2020/1/UMbook#DgIdSs-d-9iEViQ6hjlTx
+:DgIdSs-d-9iEViQ6hjlTx rdf:type owl:NamedIndividual ,
+                                :Ficheiro ;
+                       :data "2020-07-01 17:13:31" ;
+                       :nome "Teste2A_2009-10_AL_LEI.pdf" ;
+                       :path "D:/Github/LEI/apiDados/routes/../ficheiros/2d9837c3/9130e9f8/472d7d67/7e3490db/Teste2A_2009-10_AL_LEI.pdf" ;
+                       :size "99598" ;
+                       :type "application/pdf" ;
+                       :armezenadoEm :Algebra_Linear .
+
+
+###  http://www.semanticweb.org/filip/ontologies/2020/1/UMbook#EES
+:EES rdf:type owl:NamedIndividual ,
+              :Cadeira ;
+     :nome "Elementos Engenharia Sistemas" .
+
+
+###  http://www.semanticweb.org/filip/ontologies/2020/1/UMbook#Eletromagnetismo
+:Eletromagnetismo rdf:type owl:NamedIndividual ,
+                           :Cadeira ;
+                  :nome "Eletromagnetismo" .
+
+
+###  http://www.semanticweb.org/filip/ontologies/2020/1/UMbook#Engenharia_Economica
+:Engenharia_Economica rdf:type owl:NamedIndividual ,
+                               :Cadeira ;
+                      :nome "Engenharia Económica" .
+
+
+###  http://www.semanticweb.org/filip/ontologies/2020/1/UMbook#Estatistica_Aplicada
+:Estatistica_Aplicada rdf:type owl:NamedIndividual ,
+                               :Cadeira ;
+                      :nome "Estatística Aplicada" .
+
+
+###  http://www.semanticweb.org/filip/ontologies/2020/1/UMbook#F8ePnUq0srtKazkeH1q5T
+:F8ePnUq0srtKazkeH1q5T rdf:type owl:NamedIndividual ,
+                                :Ficheiro ;
+                       :data "2020-07-01 17:13:29" ;
+                       :nome "ExameA_2010-11_AL_LEI.pdf" ;
+                       :path "D:/Github/LEI/apiDados/routes/../ficheiros/2f9391ac/712f736b/6dc396e6/f50c85bb/ExameA_2010-11_AL_LEI.pdf" ;
+                       :size "156116" ;
+                       :type "application/pdf" ;
+                       :armezenadoEm :Algebra_Linear .
+
+
+###  http://www.semanticweb.org/filip/ontologies/2020/1/UMbook#GMOtfTg0GkKOCzekTq1WY
+:GMOtfTg0GkKOCzekTq1WY rdf:type owl:NamedIndividual ,
+                                :Ficheiro ;
+                       :data "2020-07-01 17:13:31" ;
+                       :nome "Teste1A_2009-10_AL_LEI_Resolucao.pdf" ;
+                       :path "D:/Github/LEI/apiDados/routes/../ficheiros/e96363d9/dd916c5f/dd6f8119/21a3bd64/Teste1A_2009-10_AL_LEI_Resolucao.pdf" ;
+                       :size "88640" ;
+                       :type "application/pdf" ;
+                       :armezenadoEm :Algebra_Linear .
+
+
+###  http://www.semanticweb.org/filip/ontologies/2020/1/UMbook#HRvlfMMwLkV6GXfkS4aPs
+:HRvlfMMwLkV6GXfkS4aPs rdf:type owl:NamedIndividual ,
+                                :Ficheiro ;
+                       :data "2020-07-01 17:13:32" ;
+                       :nome "ficha6 - AplicacoesLineares.pdf" ;
+                       :path "D:/Github/LEI/apiDados/routes/../ficheiros/ecc873c8/6d4fe87c/70f9a735/7543f8a7/ficha6 - AplicacoesLineares.pdf" ;
+                       :size "622215" ;
+                       :type "application/pdf" ;
+                       :armezenadoEm :Algebra_Linear .
+
+
+###  http://www.semanticweb.org/filip/ontologies/2020/1/UMbook#HuVOyWv1jcgRBIeaij2wh
+:HuVOyWv1jcgRBIeaij2wh rdf:type owl:NamedIndividual ,
+                                :Ficheiro ;
+                       :data "2020-07-01 17:13:32" ;
+                       :nome "AlgebraLinear_LEI_2010-11.pdf" ;
+                       :path "D:/Github/LEI/apiDados/routes/../ficheiros/c26bc0fe/9ddb02d4/03d5385a/e7e6a4e7/AlgebraLinear_LEI_2010-11.pdf" ;
+                       :size "748388" ;
+                       :type "application/pdf" ;
+                       :armezenadoEm :Algebra_Linear .
+
+
+###  http://www.semanticweb.org/filip/ontologies/2020/1/UMbook#IG4ok43qp4_7rN9NsLjFj
+:IG4ok43qp4_7rN9NsLjFj rdf:type owl:NamedIndividual ,
+                                :Ficheiro ;
+                       :data "2020-07-01 17:13:32" ;
+                       :nome "TesteC_2010-11_AL_LEI.pdf" ;
+                       :path "D:/Github/LEI/apiDados/routes/../ficheiros/d413e643/a4003efd/14f2f46f/e321d18c/TesteC_2010-11_AL_LEI.pdf" ;
+                       :size "158678" ;
+                       :type "application/pdf" ;
+                       :armezenadoEm :Algebra_Linear .
+
+
+###  http://www.semanticweb.org/filip/ontologies/2020/1/UMbook#ISD
+:ISD rdf:type owl:NamedIndividual ,
+              :Cadeira ;
+     :nome "Introdução aos Sistemas Dinâmicos" .
+
+
+###  http://www.semanticweb.org/filip/ontologies/2020/1/UMbook#K0DJsdW-TQ--BQvMTO2vF
+:K0DJsdW-TQ--BQvMTO2vF rdf:type owl:NamedIndividual ,
+                                :Ficheiro ;
+                       :data "2020-07-01 17:13:32" ;
+                       :nome "ficha2 - EspacosVectoriais.pdf" ;
+                       :path "D:/Github/LEI/apiDados/routes/../ficheiros/e63abf57/43e07833/8916a18a/96f777ab/ficha2 - EspacosVectoriais.pdf" ;
+                       :size "938677" ;
+                       :type "application/pdf" ;
+                       :armezenadoEm :Algebra_Linear .
+
+
+###  http://www.semanticweb.org/filip/ontologies/2020/1/UMbook#K2y6TCRgna4SOKlaASw93
+:K2y6TCRgna4SOKlaASw93 rdf:type owl:NamedIndividual ,
+                                :Ficheiro ;
+                       :data "2020-07-01 17:13:30" ;
+                       :nome "ExameA_2011-12_AL_LEI.pdf" ;
+                       :path "D:/Github/LEI/apiDados/routes/../ficheiros/acf1f2ee/553fb21b/f7dba037/cd6b0c0b/ExameA_2011-12_AL_LEI.pdf" ;
+                       :size "68562" ;
+                       :type "application/pdf" ;
+                       :armezenadoEm :Algebra_Linear .
+
+
+###  http://www.semanticweb.org/filip/ontologies/2020/1/UMbook#LI1
+:LI1 rdf:type owl:NamedIndividual ,
+              :Cadeira ;
+     :nome "Laboratórios De Informática I" .
+
+
+###  http://www.semanticweb.org/filip/ontologies/2020/1/UMbook#LI2
+:LI2 rdf:type owl:NamedIndividual ,
+              :Cadeira ;
+     :nome "Laboratórios de Informática II" .
+
+
+###  http://www.semanticweb.org/filip/ontologies/2020/1/UMbook#LI3
+:LI3 rdf:type owl:NamedIndividual ,
+              :Cadeira ;
+     :nome "Laboratórios de Informática III" .
+
+
+###  http://www.semanticweb.org/filip/ontologies/2020/1/UMbook#Logica
+:Logica rdf:type owl:NamedIndividual ,
+                 :Cadeira ;
+        :nome "Lógica" .
+
+
+###  http://www.semanticweb.org/filip/ontologies/2020/1/UMbook#LzythN_y0ye86Na3Vbp-k
+:LzythN_y0ye86Na3Vbp-k rdf:type owl:NamedIndividual ,
+                                :Ficheiro ;
+                       :data "2020-07-01 17:13:37" ;
+                       :nome "folha2Sistemas_Solucao.pdf" ;
+                       :path "D:/Github/LEI/apiDados/routes/../ficheiros/288e308f/11ca2a27/10720180/7ad4c930/folha2Sistemas_Solucao.pdf" ;
+                       :size "4264061" ;
+                       :type "application/pdf" ;
+                       :armezenadoEm :Algebra_Linear .
+
+
+###  http://www.semanticweb.org/filip/ontologies/2020/1/UMbook#MHbADLa4yTA_ByInA_E6Q
+:MHbADLa4yTA_ByInA_E6Q rdf:type owl:NamedIndividual ,
+                                :Ficheiro ;
+                       :data "2020-07-01 17:13:31" ;
+                       :nome "Teste1_2008-09_AL_LEI_Resolucao.pdf" ;
+                       :path "D:/Github/LEI/apiDados/routes/../ficheiros/18550c38/670659b7/a120a438/1d16cec9/Teste1_2008-09_AL_LEI_Resolucao.pdf" ;
+                       :size "82042" ;
+                       :type "application/pdf" ;
+                       :armezenadoEm :Algebra_Linear .
+
+
+###  http://www.semanticweb.org/filip/ontologies/2020/1/UMbook#MIEI
+:MIEI rdf:type owl:NamedIndividual ,
+               :Curso ;
+      :pussuiAno :Primeiro_Ano ,
+                 :Segundo_Ano ;
+      :nome "Mestrado Integrado em Engenharia Informática" .
+
+
+###  http://www.semanticweb.org/filip/ontologies/2020/1/UMbook#NB1PhxtKPjCzIT_l1uaAH
+:NB1PhxtKPjCzIT_l1uaAH rdf:type owl:NamedIndividual ,
+                                :Ficheiro ;
+                       :data "2020-07-01 17:13:29" ;
+                       :nome "4670_folha5Determinantes.pdf" ;
+                       :path "D:/Github/LEI/apiDados/routes/../ficheiros/67a65d9f/80103289/0bf1a6f4/c7107da1/4670_folha5Determinantes.pdf" ;
+                       :size "51024" ;
+                       :type "application/pdf" ;
+                       :armezenadoEm :Algebra_Linear .
+
+
+###  http://www.semanticweb.org/filip/ontologies/2020/1/UMbook#NJeGYctwKTl-UKuPG6oSQ
+:NJeGYctwKTl-UKuPG6oSQ rdf:type owl:NamedIndividual ,
+                                :Ficheiro ;
+                       :data "2020-07-01 17:13:37" ;
+                       :nome "Teste_Modelo_2010-11_AL_LEI_Resolucao.pdf" ;
+                       :path "D:/Github/LEI/apiDados/routes/../ficheiros/7d566a61/e8a22fc3/ca5f50c8/21f70625/Teste_Modelo_2010-11_AL_LEI_Resolucao.pdf" ;
+                       :size "5073059" ;
+                       :type "application/pdf" ;
+                       :armezenadoEm :Algebra_Linear .
+
+
+###  http://www.semanticweb.org/filip/ontologies/2020/1/UMbook#On5Z8z0f2Y0rjszE83CrM
+:On5Z8z0f2Y0rjszE83CrM rdf:type owl:NamedIndividual ,
+                                :Ficheiro ;
+                       :data "2020-07-01 17:13:29" ;
+                       :nome "Duvidas_AL_2010-2011.pdf" ;
+                       :path "D:/Github/LEI/apiDados/routes/../ficheiros/461e560f/10a81ea4/aa991ec4/70415e0d/Duvidas_AL_2010-2011.pdf" ;
+                       :size "99591" ;
+                       :type "application/pdf" ;
+                       :armezenadoEm :Algebra_Linear .
+
+
+###  http://www.semanticweb.org/filip/ontologies/2020/1/UMbook#P3fLVuwU3M8U_tcK6l8hS
+:P3fLVuwU3M8U_tcK6l8hS rdf:type owl:NamedIndividual ,
+                                :Ficheiro ;
+                       :data "2020-07-01 17:13:32" ;
+                       :nome "Teste2A_2009-10_AL_LEI_Resolucao.pdf" ;
+                       :path "D:/Github/LEI/apiDados/routes/../ficheiros/d68d2758/9dc82049/d8c31d84/3cbf7d0a/Teste2A_2009-10_AL_LEI_Resolucao.pdf" ;
+                       :size "59117" ;
+                       :type "application/pdf" ;
+                       :armezenadoEm :Algebra_Linear .
+
+
+###  http://www.semanticweb.org/filip/ontologies/2020/1/UMbook#POO
+:POO rdf:type owl:NamedIndividual ,
+              :Cadeira ;
+     :nome "Programação Orientada aos Objetos" .
+
+
+###  http://www.semanticweb.org/filip/ontologies/2020/1/UMbook#Primeiro_Ano
+:Primeiro_Ano rdf:type owl:NamedIndividual ,
+                       :Ano ;
+              :leciona :Algebra_Linear ,
+                       :Analise ,
+                       :Calculo ,
+                       :EES ,
+                       :LI1 ,
+                       :LI2 ,
+                       :Logica ,
+                       :Programacao_Funcional ,
+                       :Programacao_Imperativa ,
+                       :Sistemas_Computacao ,
+                       :TFM ,
+                       :TMD ;
+              :anoLetivo "2019-2020" ;
+              :nome "Primeiro Ano" .
+
+
+###  http://www.semanticweb.org/filip/ontologies/2020/1/UMbook#Programacao_Funcional
+:Programacao_Funcional rdf:type owl:NamedIndividual ,
+                                :Cadeira ;
+                       :nome "Programação Funcional" .
+
+
+###  http://www.semanticweb.org/filip/ontologies/2020/1/UMbook#Programacao_Imperativa
+:Programacao_Imperativa rdf:type owl:NamedIndividual ,
+                                 :Cadeira ;
+                        :nome "Programação Imperativa" .
+
+
+###  http://www.semanticweb.org/filip/ontologies/2020/1/UMbook#Pt-jDdEScRtR-WbVNyXqK
+:Pt-jDdEScRtR-WbVNyXqK rdf:type owl:NamedIndividual ,
+                                :Ficheiro ;
+                       :data "2020-07-01 17:13:31" ;
+                       :nome "Teste2A_2011-12_AL_LEI_Resolucao.pdf" ;
+                       :path "D:/Github/LEI/apiDados/routes/../ficheiros/f588851d/5648d204/066c51dc/548f47f8/Teste2A_2011-12_AL_LEI_Resolucao.pdf" ;
+                       :size "76884" ;
+                       :type "application/pdf" ;
+                       :armezenadoEm :Algebra_Linear .
+
+
+###  http://www.semanticweb.org/filip/ontologies/2020/1/UMbook#Q_exm87PQOmH-PNnVqOfa
+:Q_exm87PQOmH-PNnVqOfa rdf:type owl:NamedIndividual ,
+                                :Ficheiro ;
+                       :data "2020-07-01 17:13:36" ;
+                       :nome "Algebra_Linear_e_Geometria_Analitica_2008.pdf" ;
+                       :path "D:/Github/LEI/apiDados/routes/../ficheiros/303369fc/83fe2833/38b45b09/f388285d/Algebra_Linear_e_Geometria_Analitica_2008.pdf" ;
+                       :size "1717028" ;
+                       :type "application/pdf" ;
+                       :armezenadoEm :Algebra_Linear .
+
+
+###  http://www.semanticweb.org/filip/ontologies/2020/1/UMbook#Qi1NaUrZ4WFKpbyM27Jh3
+:Qi1NaUrZ4WFKpbyM27Jh3 rdf:type owl:NamedIndividual ,
+                                :Ficheiro ;
+                       :data "2020-07-01 17:13:32" ;
+                       :nome "TesteB_2010-11_AL_LEI.pdf" ;
+                       :path "D:/Github/LEI/apiDados/routes/../ficheiros/c0bd4005/053b8ddc/9c0081e5/1f6df12a/TesteB_2010-11_AL_LEI.pdf" ;
+                       :size "158910" ;
+                       :type "application/pdf" ;
+                       :armezenadoEm :Algebra_Linear .
+
+
+###  http://www.semanticweb.org/filip/ontologies/2020/1/UMbook#Qjlx5pA2yXOX-XVJWYbLm
+:Qjlx5pA2yXOX-XVJWYbLm rdf:type owl:NamedIndividual ,
+                                :Ficheiro ;
+                       :data "2020-07-01 16:58:32" ;
+                       :nome "umbook.owl" ;
+                       :path "D:/Github/LEI/apiDados/routes/../ficheiros/6dbcf4c8/cec63991/04ac2a40/fd1bcb19/umbook.owl" ;
+                       :size "19422" ;
+                       :type "application/octet-stream" ;
+                       :armezenadoEm :Algebra_Linear .
+
+
+###  http://www.semanticweb.org/filip/ontologies/2020/1/UMbook#Segundo_Ano
+:Segundo_Ano rdf:type owl:NamedIndividual ,
+                      :Ano ;
+             :leciona :Arquitetura_Computadores ,
+                      :Calculo_Programas ,
+                      :Comunicacao_Dados ,
+                      :Eletromagnetismo ,
+                      :Engenharia_Economica ,
+                      :Estatistica_Aplicada ,
+                      :ISD ,
+                      :LI3 ,
+                      :POO ,
+                      :Sistemas_Operativos ,
+                      <http://www.semanticweb.org/filip/ontologies/2020/1/UMbook#Algortimos&Complexidade> ;
+             :anoLetivo "2019-2020" ;
+             :nome "Segundo Ano" .
+
+
+###  http://www.semanticweb.org/filip/ontologies/2020/1/UMbook#Sistemas_Computacao
+:Sistemas_Computacao rdf:type owl:NamedIndividual ,
+                              :Cadeira ;
+                     :nome "Sistemas de Computação" .
+
+
+###  http://www.semanticweb.org/filip/ontologies/2020/1/UMbook#Sistemas_Operativos
+:Sistemas_Operativos rdf:type owl:NamedIndividual ,
+                              :Cadeira ;
+                     :nome "Sistemas Operativos" .
+
+
+###  http://www.semanticweb.org/filip/ontologies/2020/1/UMbook#TFM
+:TFM rdf:type owl:NamedIndividual ,
+              :Cadeira ;
+     :nome "Tópicos de Física Moderna" .
+
+
+###  http://www.semanticweb.org/filip/ontologies/2020/1/UMbook#TMD
+:TMD rdf:type owl:NamedIndividual ,
+              :Cadeira ;
+     :nome "Tópicos de Matemática Discreta" .
+
+
+###  http://www.semanticweb.org/filip/ontologies/2020/1/UMbook#UERiPvG4yWj1d22FbSQFH
+:UERiPvG4yWj1d22FbSQFH rdf:type owl:NamedIndividual ,
+                                :Ficheiro ;
+                       :data "2020-07-01 17:13:31" ;
+                       :nome "folha1Matrizes.pdf" ;
+                       :path "D:/Github/LEI/apiDados/routes/../ficheiros/2dd3d279/9c136637/998e1ef3/fecb0e2f/folha1Matrizes.pdf" ;
+                       :size "35922" ;
+                       :type "application/pdf" ;
+                       :armezenadoEm :Algebra_Linear .
+
+
+###  http://www.semanticweb.org/filip/ontologies/2020/1/UMbook#UM
+:UM rdf:type owl:NamedIndividual ,
+             :Curso ;
+    :nome "Universidade do Minho" .
+
+
+###  http://www.semanticweb.org/filip/ontologies/2020/1/UMbook#VvVVKTx9QSZhrMdiVpO-X
+:VvVVKTx9QSZhrMdiVpO-X rdf:type owl:NamedIndividual ,
+                                :Ficheiro ;
+                       :data "2020-07-01 17:13:36" ;
+                       :nome "Capitulo_4-Determinantes.pdf" ;
+                       :path "D:/Github/LEI/apiDados/routes/../ficheiros/f95ce0fe/8d66e1f0/555de821/276ee7eb/Capitulo_4-Determinantes.pdf" ;
+                       :size "1914603" ;
+                       :type "application/pdf" ;
+                       :armezenadoEm :Algebra_Linear .
+
+
+###  http://www.semanticweb.org/filip/ontologies/2020/1/UMbook#WP2ubDCB6c6svClJQ9ncm
+:WP2ubDCB6c6svClJQ9ncm rdf:type owl:NamedIndividual ,
+                                :Ficheiro ;
+                       :data "2020-07-01 17:13:31" ;
+                       :nome "TesteA_2010-11_AL_LEI.pdf" ;
+                       :path "D:/Github/LEI/apiDados/routes/../ficheiros/a5ad8dcc/e9ae2720/cb29648d/30f4f6dc/TesteA_2010-11_AL_LEI.pdf" ;
+                       :size "158769" ;
+                       :type "application/pdf" ;
+                       :armezenadoEm :Algebra_Linear .
+
+
+###  http://www.semanticweb.org/filip/ontologies/2020/1/UMbook#WwXub2sOUzGC-n10qyyAT
+:WwXub2sOUzGC-n10qyyAT rdf:type owl:NamedIndividual ,
+                                :Ficheiro ;
+                       :data "2020-07-01 17:13:37" ;
+                       :nome "Capitulo_1-Matrizes.pdf" ;
+                       :path "D:/Github/LEI/apiDados/routes/../ficheiros/540f0348/64480fb2/47f1146b/23722460/Capitulo_1-Matrizes.pdf" ;
+                       :size "3764347" ;
+                       :type "application/pdf" ;
+                       :armezenadoEm :Algebra_Linear .
+
+
+###  http://www.semanticweb.org/filip/ontologies/2020/1/UMbook#XaJ5L85JMclS3p7wXx0pu
+:XaJ5L85JMclS3p7wXx0pu rdf:type owl:NamedIndividual ,
+                                :Ficheiro ;
+                       :data "2020-07-01 17:13:37" ;
+                       :nome "Teste_Blackboard_AL_LEI_Resolucao.pdf" ;
+                       :path "D:/Github/LEI/apiDados/routes/../ficheiros/ae9ce3cc/6f431a8f/e919b48e/f2c407f5/Teste_Blackboard_AL_LEI_Resolucao.pdf" ;
+                       :size "2557244" ;
+                       :type "application/pdf" ;
+                       :armezenadoEm :Algebra_Linear .
+
+
+###  http://www.semanticweb.org/filip/ontologies/2020/1/UMbook#Yhl6Kf_CLuaclkE91MHfe
+:Yhl6Kf_CLuaclkE91MHfe rdf:type owl:NamedIndividual ,
+                                :Ficheiro ;
+                       :data "2020-07-01 17:13:29" ;
+                       :nome "4638_folha1Matrizes.pdf" ;
+                       :path "D:/Github/LEI/apiDados/routes/../ficheiros/de4bcca7/f498eac0/adc63e8f/3ab5972a/4638_folha1Matrizes.pdf" ;
+                       :size "74737" ;
+                       :type "application/pdf" ;
+                       :armezenadoEm :Algebra_Linear .
+
+
+###  http://www.semanticweb.org/filip/ontologies/2020/1/UMbook#Zyf-0ZLwsPSYsAbeY47_f
+:Zyf-0ZLwsPSYsAbeY47_f rdf:type owl:NamedIndividual ,
+                                :Ficheiro ;
+                       :data "2020-07-01 17:13:29" ;
+                       :nome "4778_AplicacoesLineares.pdf" ;
+                       :path "D:/Github/LEI/apiDados/routes/../ficheiros/54c2bad7/233f323e/ecd27409/51a79f73/4778_AplicacoesLineares.pdf" ;
+                       :size "233751" ;
+                       :type "application/pdf" ;
+                       :armezenadoEm :Algebra_Linear .
+
+
+###  http://www.semanticweb.org/filip/ontologies/2020/1/UMbook#_4JceVJj9hHCSvDe11RGO
+:_4JceVJj9hHCSvDe11RGO rdf:type owl:NamedIndividual ,
+                                :Ficheiro ;
+                       :data "2020-07-01 17:13:37" ;
+                       :nome "TesteB_2010-11_AL_LEI_Resolucao.pdf" ;
+                       :path "D:/Github/LEI/apiDados/routes/../ficheiros/2c57ee84/754949e5/4f9ec374/9c573231/TesteB_2010-11_AL_LEI_Resolucao.pdf" ;
+                       :size "3097356" ;
+                       :type "application/pdf" ;
+                       :armezenadoEm :Algebra_Linear .
+
+
+###  http://www.semanticweb.org/filip/ontologies/2020/1/UMbook#_LCcjj8gIyceelPZ90cDU
+:_LCcjj8gIyceelPZ90cDU rdf:type owl:NamedIndividual ,
+                                :Ficheiro ;
+                       :data "2020-07-01 17:13:30" ;
+                       :nome "ExameB_2010-11_AL_LEI.pdf" ;
+                       :path "D:/Github/LEI/apiDados/routes/../ficheiros/b9e9a00d/715fbcda/09912a39/bf84ef12/ExameB_2010-11_AL_LEI.pdf" ;
+                       :size "157243" ;
+                       :type "application/pdf" ;
+                       :armezenadoEm :Algebra_Linear .
+
+
+###  http://www.semanticweb.org/filip/ontologies/2020/1/UMbook#_tLXn4r4v4GkDoBK8baxZ
+:_tLXn4r4v4GkDoBK8baxZ rdf:type owl:NamedIndividual ,
+                                :Ficheiro ;
+                       :data "2020-07-01 17:13:31" ;
+                       :nome "Teste1A_2011-12_AL_LEI.pdf" ;
+                       :path "D:/Github/LEI/apiDados/routes/../ficheiros/82b64837/f83d9954/6776e5cd/f8434161/Teste1A_2011-12_AL_LEI.pdf" ;
+                       :size "74222" ;
+                       :type "application/pdf" ;
+                       :armezenadoEm :Algebra_Linear .
+
+
+###  http://www.semanticweb.org/filip/ontologies/2020/1/UMbook#aGEFJiRtiGRiJPTdRswOO
+:aGEFJiRtiGRiJPTdRswOO rdf:type owl:NamedIndividual ,
+                                :Ficheiro ;
+                       :data "2020-07-01 17:13:31" ;
+                       :nome "ficha3 - SistemasLineares.pdf" ;
+                       :path "D:/Github/LEI/apiDados/routes/../ficheiros/b5edb461/b12f5f57/262b48da/9b518b29/ficha3 - SistemasLineares.pdf" ;
+                       :size "387503" ;
+                       :type "application/pdf" ;
+                       :armezenadoEm :Algebra_Linear .
+
+
+###  http://www.semanticweb.org/filip/ontologies/2020/1/UMbook#admin01
+:admin01 rdf:type owl:NamedIndividual ,
+                  :Admin ;
+         :dataNasc "" ;
+         :nome "Admin" ;
+         :numAluno "Desconhecido" ;
+         :numTelemovel "933333333" ;
+         :sexo "Desconhecido" .
+
+
+###  http://www.semanticweb.org/filip/ontologies/2020/1/UMbook#c0TjLhClMxmbfcAdZjjBk
+:c0TjLhClMxmbfcAdZjjBk rdf:type owl:NamedIndividual ,
+                                :Ficheiro ;
+                       :data "2020-07-01 17:13:29" ;
+                       :nome "4755_Sistemas.pdf" ;
+                       :path "D:/Github/LEI/apiDados/routes/../ficheiros/922b2c75/eaa7087a/e20820f6/5a138428/4755_Sistemas.pdf" ;
+                       :size "285713" ;
+                       :type "application/pdf" ;
+                       :armezenadoEm :Algebra_Linear .
+
+
+###  http://www.semanticweb.org/filip/ontologies/2020/1/UMbook#comentario001
+:comentario001 rdf:type owl:NamedIndividual ,
+                        :Comentario ;
+               :comentadoEm :publicacao002 ;
+               :éComentadoPor <http://www.semanticweb.org/filip/ontologies/2020/1/UMbook#lguilhermem@hotmail.com> ;
+               :conteudo "Esqueci-me da minha palavra-passe, como a posso recuperar?" ;
+               :data "2020-04-16" ;
+               :gostos 0 .
+
+
+###  http://www.semanticweb.org/filip/ontologies/2020/1/UMbook#conversa001
+:conversa001 rdf:type owl:NamedIndividual ,
+                      :Conversa ;
+             :pussuiMensagem :mensagem001 ,
+                             :mensagem002 ;
+             :pussuiParticipantes <http://www.semanticweb.org/filip/ontologies/2020/1/UMbook#a82088@alunos.uminho.pt> ,
+                                  <http://www.semanticweb.org/filip/ontologies/2020/1/UMbook#lguilhermem@hotmail.com> .
+
+
+###  http://www.semanticweb.org/filip/ontologies/2020/1/UMbook#conversa002
+:conversa002 rdf:type owl:NamedIndividual ,
+                      :Conversa ;
+             :pussuiMensagem :mensagem003 ,
+                             :mensagem004 ;
+             :pussuiParticipantes <http://www.semanticweb.org/filip/ontologies/2020/1/UMbook#a82088@alunos.uminho.pt> ,
+                                  <http://www.semanticweb.org/filip/ontologies/2020/1/UMbook#joniboy@hotmail.com> .
+
+
+###  http://www.semanticweb.org/filip/ontologies/2020/1/UMbook#conversa003
+:conversa003 rdf:type owl:NamedIndividual ,
+                      :Conversa ;
+             :pussuiMensagem :mensagem005 ,
+                             :mensagem006 ;
+             :pussuiParticipantes <http://www.semanticweb.org/filip/ontologies/2020/1/UMbook#flipcunha@gmail.com> ,
+                                  <http://www.semanticweb.org/filip/ontologies/2020/1/UMbook#lguilhermem@hotmail.com> .
+
+
+###  http://www.semanticweb.org/filip/ontologies/2020/1/UMbook#dCgUh7ysfo3tMbXbs_nFh
+:dCgUh7ysfo3tMbXbs_nFh rdf:type owl:NamedIndividual ,
+                                :Ficheiro ;
+                       :data "2020-07-01 17:13:31" ;
+                       :nome "ficha5 - ValoresVectoresProprios.pdf" ;
+                       :path "D:/Github/LEI/apiDados/routes/../ficheiros/4ca5fc8b/58cbe624/a51912bf/07e0f914/ficha5 - ValoresVectoresProprios.pdf" ;
+                       :size "505216" ;
+                       :type "application/pdf" ;
+                       :armezenadoEm :Algebra_Linear .
+
+
+###  http://www.semanticweb.org/filip/ontologies/2020/1/UMbook#dGioxMh2xv-8etw2L0FRO
+:dGioxMh2xv-8etw2L0FRO rdf:type owl:NamedIndividual ,
+                                :Ficheiro ;
+                       :data "2020-07-01 17:13:31" ;
+                       :nome "folha2Sistemas.pdf" ;
+                       :path "D:/Github/LEI/apiDados/routes/../ficheiros/a535334e/e4d85ebf/55a92c28/9c73df8b/folha2Sistemas.pdf" ;
+                       :size "32298" ;
+                       :type "application/pdf" ;
+                       :armezenadoEm :Algebra_Linear .
+
+
+###  http://www.semanticweb.org/filip/ontologies/2020/1/UMbook#eSxiOCmIK_GapFC5py8ON
+:eSxiOCmIK_GapFC5py8ON rdf:type owl:NamedIndividual ,
+                                :Ficheiro ;
+                       :data "2020-07-01 17:13:31" ;
+                       :nome "folha5Determinantes.pdf" ;
+                       :path "D:/Github/LEI/apiDados/routes/../ficheiros/84df0e0d/00c91192/24d78296/57a3d915/folha5Determinantes.pdf" ;
+                       :size "25309" ;
+                       :type "application/pdf" ;
+                       :armezenadoEm :Algebra_Linear .
+
+
+###  http://www.semanticweb.org/filip/ontologies/2020/1/UMbook#evento001
+:evento001 rdf:type owl:NamedIndividual ,
+                    :Evento ;
+           :parceriaCom :UM ;
+           :temPresenca <http://www.semanticweb.org/filip/ontologies/2020/1/UMbook#a82088@alunos.uminho.pt> ,
+                        <http://www.semanticweb.org/filip/ontologies/2020/1/UMbook#flipcunha@gmail.com> ;
+           :conteudo "A fase final do campeonato de futsal da Unversidade do Minho está de volta, se não está a participar, venha pelo menos assistir e divirta-se com os seus amigos." ;
+           :dataFim "2020-06-20" ;
+           :dataInicio "2020-06-15" ;
+           :nome "Campeonato de Futsal UMinho" .
+
+
+###  http://www.semanticweb.org/filip/ontologies/2020/1/UMbook#evento002
+:evento002 rdf:type owl:NamedIndividual ,
+                    :Evento ;
+           :parceriaCom :MIEI ;
+           :temPresenca <http://www.semanticweb.org/filip/ontologies/2020/1/UMbook#joniboy@hotmail.com> ;
+           :conteudo "Este torneio de FIFA na PS4 será elaborado pelo CESIUM." ;
+           :dataFim "2020-06-20 19:00:00" ;
+           :dataInicio "2020-06-20 09:00:00" ;
+           :nome "Torneio FIFA CESIUM" .
+
+
+###  http://www.semanticweb.org/filip/ontologies/2020/1/UMbook#ficheiro001
+:ficheiro001 rdf:type owl:NamedIndividual ,
+                      :Ficheiro ;
+             :guardadoEm :publicacao001 ;
+             :nome "oslusiadas.pdf" ;
+             :path "ficheiros/oslusiadas.pdf" ;
+             :size 100 ;
+             :type "pdf" .
+
+
+###  http://www.semanticweb.org/filip/ontologies/2020/1/UMbook#ficheiro002
+:ficheiro002 rdf:type owl:NamedIndividual ,
+                      :Ficheiro ;
+             :guardadoEm :publicacao001 ;
+             :nome "1teste.PNG" ;
+             :path "ficheiros/1teste.PNG" ;
+             :size 100 ;
+             :type "PNG" .
+
+
+###  http://www.semanticweb.org/filip/ontologies/2020/1/UMbook#hFGecztJQDwmFchFr9Wk-
+:hFGecztJQDwmFchFr9Wk- rdf:type owl:NamedIndividual ,
+                                :Ficheiro ;
+                       :data "2020-07-01 17:13:30" ;
+                       :nome "ExameA_2011-12_AL_LEI_Resolucao.pdf" ;
+                       :path "D:/Github/LEI/apiDados/routes/../ficheiros/65bd9f10/e64a9ca8/c74d1b65/400a61c9/ExameA_2011-12_AL_LEI_Resolucao.pdf" ;
+                       :size "81118" ;
+                       :type "application/pdf" ;
+                       :armezenadoEm :Algebra_Linear .
+
+
+###  http://www.semanticweb.org/filip/ontologies/2020/1/UMbook#hMBJWrasCBr93ChaEFKJE
+:hMBJWrasCBr93ChaEFKJE rdf:type owl:NamedIndividual ,
+                                :Ficheiro ;
+                       :data "2020-07-01 17:13:31" ;
+                       :nome "folha3EspacosVectoriais.pdf" ;
+                       :path "D:/Github/LEI/apiDados/routes/../ficheiros/dc7971b2/14902b1b/638a4bae/269fbb06/folha3EspacosVectoriais.pdf" ;
+                       :size "42745" ;
+                       :type "application/pdf" ;
+                       :armezenadoEm :Algebra_Linear .
+
+
+###  http://www.semanticweb.org/filip/ontologies/2020/1/UMbook#jZKkTL7x_f0LZbom04D4r
+:jZKkTL7x_f0LZbom04D4r rdf:type owl:NamedIndividual ,
+                                :Ficheiro ;
+                       :data "2020-07-01 17:13:29" ;
+                       :nome "4783_ValoresVectoresProprios.pdf" ;
+                       :path "D:/Github/LEI/apiDados/routes/../ficheiros/57483fab/99f40863/52dbf54f/6df3ac90/4783_ValoresVectoresProprios.pdf" ;
+                       :size "161681" ;
+                       :type "application/pdf" ;
+                       :armezenadoEm :Algebra_Linear .
+
+
+###  http://www.semanticweb.org/filip/ontologies/2020/1/UMbook#kcZJnOqcSN8IPbRZHaSh5
+:kcZJnOqcSN8IPbRZHaSh5 rdf:type owl:NamedIndividual ,
+                                :Ficheiro ;
+                       :data "2020-07-01 17:13:29" ;
+                       :nome "4666_folha4AplicacoesLineares.pdf" ;
+                       :path "D:/Github/LEI/apiDados/routes/../ficheiros/c8aeb74b/ec243429/c3e8f21c/a20838a1/4666_folha4AplicacoesLineares.pdf" ;
+                       :size "56543" ;
+                       :type "application/pdf" ;
+                       :armezenadoEm :Algebra_Linear .
+
+
+###  http://www.semanticweb.org/filip/ontologies/2020/1/UMbook#mZuf8LYSDB0gJyQMl6zuK
+:mZuf8LYSDB0gJyQMl6zuK rdf:type owl:NamedIndividual ,
+                                :Ficheiro ;
+                       :data "2020-07-01 17:13:31" ;
+                       :nome "Teste_Modelo_2010-11_AL_LEI.pdf" ;
+                       :path "D:/Github/LEI/apiDados/routes/../ficheiros/ed538092/cea5fc62/ea079440/24648445/Teste_Modelo_2010-11_AL_LEI.pdf" ;
+                       :size "180205" ;
+                       :type "application/pdf" ;
+                       :armezenadoEm :Algebra_Linear .
+
+
+###  http://www.semanticweb.org/filip/ontologies/2020/1/UMbook#mensagem001
+:mensagem001 rdf:type owl:NamedIndividual ,
+                      :Mensagem ;
+             :conteudo "Olá, Joe! Tudo bem?" ;
+             :data "2020-04-16" .
+
+
+###  http://www.semanticweb.org/filip/ontologies/2020/1/UMbook#mensagem002
+:mensagem002 rdf:type owl:NamedIndividual ,
+                      :Mensagem ;
+             :conteudo "Olá, mano! Tudo e contigo?" ;
+             :data "2020-04-16" .
+
+
+###  http://www.semanticweb.org/filip/ontologies/2020/1/UMbook#mensagem003
+:mensagem003 rdf:type owl:NamedIndividual ,
+                      :Mensagem ;
+             :conteudo "já viste aquela música do Sombraa?" ;
+             :data "2020-04-16" .
+
+
+###  http://www.semanticweb.org/filip/ontologies/2020/1/UMbook#mensagem004
+:mensagem004 rdf:type owl:NamedIndividual ,
+                      :Mensagem ;
+             :conteudo "Já, mano! Fella" ;
+             :data "2020-04-16" .
+
+
+###  http://www.semanticweb.org/filip/ontologies/2020/1/UMbook#mensagem005
+:mensagem005 rdf:type owl:NamedIndividual ,
+                      :Mensagem ;
+             :conteudo "e já está a chegar o comboio" ;
+             :data "2020-04-16" .
+
+
+###  http://www.semanticweb.org/filip/ontologies/2020/1/UMbook#mensagem006
+:mensagem006 rdf:type owl:NamedIndividual ,
+                      :Mensagem ;
+             :conteudo "já vou descer mano" ;
+             :data "2020-04-16" .
+
+
+###  http://www.semanticweb.org/filip/ontologies/2020/1/UMbook#nagYznx_ScyyeKauB1pbY
+:nagYznx_ScyyeKauB1pbY rdf:type owl:NamedIndividual ,
+                                :Ficheiro ;
+                       :data "2020-07-01 17:13:31" ;
+                       :nome "ficha4 - Determinantes.pdf" ;
+                       :path "D:/Github/LEI/apiDados/routes/../ficheiros/e1693e01/fb3c7860/f62a67dc/13b079a2/ficha4 - Determinantes.pdf" ;
+                       :size "468471" ;
+                       :type "application/pdf" ;
+                       :armezenadoEm :Algebra_Linear .
+
+
+###  http://www.semanticweb.org/filip/ontologies/2020/1/UMbook#po3kxnNlVE-X6YR9V9W4V
+:po3kxnNlVE-X6YR9V9W4V rdf:type owl:NamedIndividual ,
+                                :Ficheiro ;
+                       :data "2020-07-01 17:13:29" ;
+                       :nome "4749_Matrizes.pdf" ;
+                       :path "D:/Github/LEI/apiDados/routes/../ficheiros/cf311b5e/077a3409/1eb9f5a9/ed8d9ef5/4749_Matrizes.pdf" ;
+                       :size "312687" ;
+                       :type "application/pdf" ;
+                       :armezenadoEm :Algebra_Linear .
+
+
+###  http://www.semanticweb.org/filip/ontologies/2020/1/UMbook#publicacao001
+:publicacao001 rdf:type owl:NamedIndividual ,
+                        :Publicacao ;
+               :PussuiFicheiro :ficheiro001 ;
+               :éPublicadaEm :ISD ;
+               :éPublicadoPor :admin01 ;
+               :conteudo "ficheiro" ;
+               :data "2020-04-13" ;
+               :gostos 20 ;
+               :titulo "Titulo da Pub" .
+
+
+###  http://www.semanticweb.org/filip/ontologies/2020/1/UMbook#publicacao002
+:publicacao002 rdf:type owl:NamedIndividual ,
+                        :Publicacao ;
+               :éPublicadaEm :Segundo_Ano ;
+               :éPublicadoPor <http://www.semanticweb.org/filip/ontologies/2020/1/UMbook#joniboy@hotmail.com> ;
+               :conteudo "Estejam atentos ao swap para os horários." ;
+               :data "2020-04-16" ;
+               :gostos 2 ;
+               :titulo "Titulo da pub 2" .
+
+
+###  http://www.semanticweb.org/filip/ontologies/2020/1/UMbook#q7-5ZJZeS2Ii4Sh-aeTom
+:q7-5ZJZeS2Ii4Sh-aeTom rdf:type owl:NamedIndividual ,
+                                :Ficheiro ;
+                       :data "2020-07-01 17:13:31" ;
+                       :nome "ExameD_2010-11_AL_LEI.pdf" ;
+                       :path "D:/Github/LEI/apiDados/routes/../ficheiros/1dd62ef7/bdfc19e5/d1a10808/ece8376b/ExameD_2010-11_AL_LEI.pdf" ;
+                       :size "156062" ;
+                       :type "application/pdf" ;
+                       :armezenadoEm :Algebra_Linear .
+
+
+###  http://www.semanticweb.org/filip/ontologies/2020/1/UMbook#qV_4kR4A7rOh8bR0R9HCz
+:qV_4kR4A7rOh8bR0R9HCz rdf:type owl:NamedIndividual ,
+                                :Ficheiro ;
+                       :data "2020-07-01 17:13:31" ;
+                       :nome "Teste1A_2011-12_AL_LEI_Resolucao.pdf" ;
+                       :path "D:/Github/LEI/apiDados/routes/../ficheiros/726c2b7d/5736d767/7a13e9c6/aafebd3b/Teste1A_2011-12_AL_LEI_Resolucao.pdf" ;
+                       :size "101493" ;
+                       :type "application/pdf" ;
+                       :armezenadoEm :Algebra_Linear .
+
+
+###  http://www.semanticweb.org/filip/ontologies/2020/1/UMbook#rPyS68NGztUgWg36CyMzK
+:rPyS68NGztUgWg36CyMzK rdf:type owl:NamedIndividual ,
+                                :Ficheiro ;
+                       :data "2020-07-01 17:13:29" ;
+                       :nome "4672_folha7ExerciciosRevisao.pdf" ;
+                       :path "D:/Github/LEI/apiDados/routes/../ficheiros/63f1818b/ce158a8f/dc518b5b/6abd3612/4672_folha7ExerciciosRevisao.pdf" ;
+                       :size "55088" ;
+                       :type "application/pdf" ;
+                       :armezenadoEm :Algebra_Linear .
+
+
+###  http://www.semanticweb.org/filip/ontologies/2020/1/UMbook#ruL3H5W6jzUNr7p9-YNkT
+:ruL3H5W6jzUNr7p9-YNkT rdf:type owl:NamedIndividual ,
+                                :Ficheiro ;
+                       :data "2020-07-01 17:13:35" ;
+                       :nome "Ficha3-Ex_3-8_a_3-10.pdf" ;
+                       :path "D:/Github/LEI/apiDados/routes/../ficheiros/22e88ffa/14729fa1/6cea281d/bf5e7fa7/Ficha3-Ex_3-8_a_3-10.pdf" ;
+                       :size "1283760" ;
+                       :type "application/pdf" ;
+                       :armezenadoEm :Algebra_Linear .
+
+
+###  http://www.semanticweb.org/filip/ontologies/2020/1/UMbook#sP5EAhmFoki469YgHtzjr
+:sP5EAhmFoki469YgHtzjr rdf:type owl:NamedIndividual ,
+                                :Ficheiro ;
+                       :data "2020-07-01 17:13:31" ;
+                       :nome "folha4AplicacoesLineares.pdf" ;
+                       :path "D:/Github/LEI/apiDados/routes/../ficheiros/e30f3499/b484cddd/a19f35be/4862174a/folha4AplicacoesLineares.pdf" ;
+                       :size "29517" ;
+                       :type "application/pdf" ;
+                       :armezenadoEm :Algebra_Linear .
+
+
+###  http://www.semanticweb.org/filip/ontologies/2020/1/UMbook#spmEnlqTCl2uXodKuc475
+:spmEnlqTCl2uXodKuc475 rdf:type owl:NamedIndividual ,
+                                :Ficheiro ;
+                       :data "2020-07-01 17:13:37" ;
+                       :nome "folha3EspacosVectoriais_Solucao.pdf" ;
+                       :path "D:/Github/LEI/apiDados/routes/../ficheiros/884f669e/3efe56d6/120869c9/8d9c8a9f/folha3EspacosVectoriais_Solucao.pdf" ;
+                       :size "4045530" ;
+                       :type "application/pdf" ;
+                       :armezenadoEm :Algebra_Linear .
+
+
+###  http://www.semanticweb.org/filip/ontologies/2020/1/UMbook#undefined
+:undefined rdf:type owl:NamedIndividual .
+
+
+###  http://www.semanticweb.org/filip/ontologies/2020/1/UMbook#xh-bJT1BUY0c-7nRCWSIk
+:xh-bJT1BUY0c-7nRCWSIk rdf:type owl:NamedIndividual ,
+                                :Ficheiro ;
+                       :data "2020-07-01 17:13:37" ;
+                       :nome "Capitulo_6-Aplicacoes_Lineares.pdf" ;
+                       :path "D:/Github/LEI/apiDados/routes/../ficheiros/27dc24ed/14c65e20/c992cc94/35b58fe9/Capitulo_6-Aplicacoes_Lineares.pdf" ;
+                       :size "4967020" ;
+                       :type "application/pdf" ;
+                       :armezenadoEm :Algebra_Linear .
+
+
+###  http://www.semanticweb.org/filip/ontologies/2020/1/UMbook#xny3dSMejgnlB95bJ29PQ
+:xny3dSMejgnlB95bJ29PQ rdf:type owl:NamedIndividual ,
+                                :Ficheiro ;
+                       :data "2020-07-01 17:13:31" ;
+                       :nome "folha6ValoresVectoresProprios.pdf" ;
+                       :path "D:/Github/LEI/apiDados/routes/../ficheiros/e4e57f30/168b8a4c/f83e3d07/439978f3/folha6ValoresVectoresProprios.pdf" ;
+                       :size "29511" ;
+                       :type "application/pdf" ;
+                       :armezenadoEm :Algebra_Linear .
+
+
+###  http://www.semanticweb.org/filip/ontologies/2020/1/UMbook#y0g2PsoBn01RBflGYhq5N
+:y0g2PsoBn01RBflGYhq5N rdf:type owl:NamedIndividual ,
+                                :Ficheiro ;
+                       :data "2020-07-01 17:13:37" ;
+                       :nome "Capitulo_2-Espacos_Vectoriais.pdf" ;
+                       :path "D:/Github/LEI/apiDados/routes/../ficheiros/0bc6d8ce/4772af77/30b5fd4c/13cd0d70/Capitulo_2-Espacos_Vectoriais.pdf" ;
+                       :size "4122259" ;
+                       :type "application/pdf" ;
+                       :armezenadoEm :Algebra_Linear .
+
+
+###  http://www.semanticweb.org/filip/ontologies/2020/1/UMbook#yR3NXq0YQyvII4zJiJkxf
+:yR3NXq0YQyvII4zJiJkxf rdf:type owl:NamedIndividual ,
+                                :Ficheiro ;
+                       :data "2020-07-01 17:13:37" ;
+                       :nome "Capitulo_3-Sistemas_de_Equacoes_Lineares.pdf" ;
+                       :path "D:/Github/LEI/apiDados/routes/../ficheiros/4fbe0034/4972ef38/e4641fc4/d0eda8ce/Capitulo_3-Sistemas_de_Equacoes_Lineares.pdf" ;
+                       :size "2792724" ;
+                       :type "application/pdf" ;
+                       :armezenadoEm :Algebra_Linear .
+
+
+###  http://www.semanticweb.org/filip/ontologies/2020/1/UMbook#ygRau3yyV0Su0APWrEfAe
+:ygRau3yyV0Su0APWrEfAe rdf:type owl:NamedIndividual ,
+                                :Ficheiro ;
+                       :data "2020-07-01 17:13:29" ;
+                       :nome "4660_folha3EspacosVectoriais.pdf" ;
+                       :path "D:/Github/LEI/apiDados/routes/../ficheiros/f07a93da/ad012c05/20234011/3f4fc212/4660_folha3EspacosVectoriais.pdf" ;
+                       :size "71476" ;
+                       :type "application/pdf" ;
+                       :armezenadoEm :Algebra_Linear .
+
+
+###  http://www.semanticweb.org/filip/ontologies/2020/1/UMbook#zEh_7EiUb8vTcCFLz7xfq
+:zEh_7EiUb8vTcCFLz7xfq rdf:type owl:NamedIndividual ,
+                                :Ficheiro ;
+                       :data "2020-07-01 17:13:31" ;
+                       :nome "Teste1A_2009-10_AL_LEI.pdf" ;
+                       :path "D:/Github/LEI/apiDados/routes/../ficheiros/e5912ef1/b4512d7a/e9eddc7d/662d1ca0/Teste1A_2009-10_AL_LEI.pdf" ;
+                       :size "77418" ;
+                       :type "application/pdf" ;
+                       :armezenadoEm :Algebra_Linear .
+
+
+###  http://www.semanticweb.org/filip/ontologies/2020/1/UMbook#zxdEZs0fzCBO_mG0rkk5i
+:zxdEZs0fzCBO_mG0rkk5i rdf:type owl:NamedIndividual ,
+                                :Ficheiro ;
+                       :data "2020-07-01 17:13:29" ;
+                       :nome "4782_Determinantes.pdf" ;
+                       :path "D:/Github/LEI/apiDados/routes/../ficheiros/b3845a8d/b7d44f1b/fe393399/59bcbc20/4782_Determinantes.pdf" ;
+                       :size "143148" ;
+                       :type "application/pdf" ;
+                       :armezenadoEm :Algebra_Linear .
+
+
+###  http://www.semanticweb.org/filip/ontologies/2020/1/UMbook#0DNljiFywjFfXDjkVG3ko
+<http://www.semanticweb.org/filip/ontologies/2020/1/UMbook#0DNljiFywjFfXDjkVG3ko> rdf:type owl:NamedIndividual ,
+                                                                                           :Ficheiro ;
+                                                                                  :data "2020-07-01 17:13:29" ;
+                                                                                  :nome "Comentario_ParteI_Teste1A_2009-10_AL_LEI.pdf" ;
+                                                                                  :path "D:/Github/LEI/apiDados/routes/../ficheiros/a3054efb/9c9a6de9/207eb6d2/0266f6bc/Comentario_ParteI_Teste1A_2009-10_AL_LEI.pdf" ;
+                                                                                  :size "83709" ;
+                                                                                  :type "application/pdf" ;
+                                                                                  :armezenadoEm :Algebra_Linear .
+
+
+###  http://www.semanticweb.org/filip/ontologies/2020/1/UMbook#08xSCa2jNkByHbTaQQeQx
+<http://www.semanticweb.org/filip/ontologies/2020/1/UMbook#08xSCa2jNkByHbTaQQeQx> rdf:type owl:NamedIndividual ,
+                                                                                           :Ficheiro ;
+                                                                                  :data "2020-07-01 17:13:29" ;
+                                                                                  :nome "4773_EspacosVectoriais.pdf" ;
+                                                                                  :path "D:/Github/LEI/apiDados/routes/../ficheiros/18b3a27b/80357dd3/40194b62/31ee5c0a/4773_EspacosVectoriais.pdf" ;
+                                                                                  :size "292855" ;
+                                                                                  :type "application/pdf" ;
+                                                                                  :armezenadoEm :Algebra_Linear .
+
+
+###  http://www.semanticweb.org/filip/ontologies/2020/1/UMbook#1m187NO9Jx9IArf7IH_-K
+<http://www.semanticweb.org/filip/ontologies/2020/1/UMbook#1m187NO9Jx9IArf7IH_-K> rdf:type owl:NamedIndividual ,
+                                                                                           :Ficheiro ;
+                                                                                  :data "2020-07-01 17:13:32" ;
+                                                                                  :nome "Ficha3-Ex_9_e_Ex_10.pdf" ;
+                                                                                  :path "D:/Github/LEI/apiDados/routes/../ficheiros/ac2c3a13/09fb4782/7485324b/e7e76892/Ficha3-Ex_9_e_Ex_10.pdf" ;
+                                                                                  :size "533314" ;
+                                                                                  :type "application/pdf" ;
+                                                                                  :armezenadoEm :Algebra_Linear .
+
+
+###  http://www.semanticweb.org/filip/ontologies/2020/1/UMbook#2q8LS2-bOEjmIS8PMJLQ8
+<http://www.semanticweb.org/filip/ontologies/2020/1/UMbook#2q8LS2-bOEjmIS8PMJLQ8> rdf:type owl:NamedIndividual ,
+                                                                                           :Ficheiro ;
+                                                                                  :data "2020-07-01 17:13:30" ;
+                                                                                  :nome "ExameC_2010-11_AL_LEI.pdf" ;
+                                                                                  :path "D:/Github/LEI/apiDados/routes/../ficheiros/1e4280bd/4a2d7ff2/04be872a/13c320aa/ExameC_2010-11_AL_LEI.pdf" ;
+                                                                                  :size "156103" ;
+                                                                                  :type "application/pdf" ;
+                                                                                  :armezenadoEm :Algebra_Linear .
+
+
+###  http://www.semanticweb.org/filip/ontologies/2020/1/UMbook#48kTci_EK9kHmMYvIi-Rg
+<http://www.semanticweb.org/filip/ontologies/2020/1/UMbook#48kTci_EK9kHmMYvIi-Rg> rdf:type owl:NamedIndividual ,
+                                                                                           :Ficheiro ;
+                                                                                  :data "2020-07-01 17:13:31" ;
+                                                                                  :nome "Teste2A_2008-09_AL_LEI.pdf" ;
+                                                                                  :path "D:/Github/LEI/apiDados/routes/../ficheiros/ca802bfc/2587df6c/050291a3/3e01420b/Teste2A_2008-09_AL_LEI.pdf" ;
+                                                                                  :size "72482" ;
+                                                                                  :type "application/pdf" ;
+                                                                                  :armezenadoEm :Algebra_Linear .
+
+
+###  http://www.semanticweb.org/filip/ontologies/2020/1/UMbook#5xDjyT1fjtvhzipJ55MQf
+<http://www.semanticweb.org/filip/ontologies/2020/1/UMbook#5xDjyT1fjtvhzipJ55MQf> rdf:type owl:NamedIndividual ,
+                                                                                           :Ficheiro ;
+                                                                                  :data "2020-07-01 17:13:31" ;
+                                                                                  :nome "Matrizes.pdf" ;
+                                                                                  :path "D:/Github/LEI/apiDados/routes/../ficheiros/ed34d14c/ba46776a/15e19428/82cf7e8e/Matrizes.pdf" ;
+                                                                                  :size "305028" ;
+                                                                                  :type "application/pdf" ;
+                                                                                  :armezenadoEm :Algebra_Linear .
+
+
+###  http://www.semanticweb.org/filip/ontologies/2020/1/UMbook#8MkE1g1k87d8L8SavO8-J
+<http://www.semanticweb.org/filip/ontologies/2020/1/UMbook#8MkE1g1k87d8L8SavO8-J> rdf:type owl:NamedIndividual ,
+                                                                                           :Ficheiro ;
+                                                                                  :data "2020-07-01 17:13:37" ;
+                                                                                  :nome "Capitulo_5-Valores_e_Vectores_Proprios.pdf" ;
+                                                                                  :path "D:/Github/LEI/apiDados/routes/../ficheiros/811c1b4d/1fd627ec/82148f35/7d2543b9/Capitulo_5-Valores_e_Vectores_Proprios.pdf" ;
+                                                                                  :size "3120214" ;
+                                                                                  :type "application/pdf" ;
+                                                                                  :armezenadoEm :Algebra_Linear .
+
+
+###  http://www.semanticweb.org/filip/ontologies/2020/1/UMbook#8SP0qjE1ATydgJFT9Fat-
+<http://www.semanticweb.org/filip/ontologies/2020/1/UMbook#8SP0qjE1ATydgJFT9Fat-> rdf:type owl:NamedIndividual ,
+                                                                                           :Ficheiro ;
+                                                                                  :data "2020-07-01 17:13:31" ;
+                                                                                  :nome "folha1Matrizes_Solucao.pdf" ;
+                                                                                  :path "D:/Github/LEI/apiDados/routes/../ficheiros/95558b50/97c7299f/6f2c4062/1b1ed89b/folha1Matrizes_Solucao.pdf" ;
+                                                                                  :size "44892" ;
+                                                                                  :type "application/pdf" ;
+                                                                                  :armezenadoEm :Algebra_Linear .
+
+
+###  http://www.semanticweb.org/filip/ontologies/2020/1/UMbook#8pYj0Pml8Hsdz_TVPqOoH
+<http://www.semanticweb.org/filip/ontologies/2020/1/UMbook#8pYj0Pml8Hsdz_TVPqOoH> rdf:type owl:NamedIndividual ,
+                                                                                           :Ficheiro ;
+                                                                                  :data "2020-07-01 17:13:32" ;
+                                                                                  :nome "TesteD_2010-11_AL_LEI.pdf" ;
+                                                                                  :path "D:/Github/LEI/apiDados/routes/../ficheiros/8e2f4bd3/492bfd4f/be017eae/84ba8c0c/TesteD_2010-11_AL_LEI.pdf" ;
+                                                                                  :size "158634" ;
+                                                                                  :type "application/pdf" ;
+                                                                                  :armezenadoEm :Algebra_Linear .
+
+
+###  http://www.semanticweb.org/filip/ontologies/2020/1/UMbook#84RFhUO8ZIg2j8sWsMtne
+<http://www.semanticweb.org/filip/ontologies/2020/1/UMbook#84RFhUO8ZIg2j8sWsMtne> rdf:type owl:NamedIndividual ,
+                                                                                           :Ficheiro ;
+                                                                                  :data "2020-07-01 17:13:31" ;
+                                                                                  :nome "Teste2A_2011-12_AL_LEI.pdf" ;
+                                                                                  :path "D:/Github/LEI/apiDados/routes/../ficheiros/95f2979e/1ee908d9/19e4a485/1fecffe8/Teste2A_2011-12_AL_LEI.pdf" ;
+                                                                                  :size "64583" ;
+                                                                                  :type "application/pdf" ;
+                                                                                  :armezenadoEm :Algebra_Linear .
+
+
+###  http://www.semanticweb.org/filip/ontologies/2020/1/UMbook#Algortimos&Complexidade
+<http://www.semanticweb.org/filip/ontologies/2020/1/UMbook#Algortimos&Complexidade> rdf:type owl:NamedIndividual ,
+                                                                                             :Cadeira ;
+                                                                                    :nome "Algorítmos e Complexidade" .
+
+
+###  http://www.semanticweb.org/filip/ontologies/2020/1/UMbook#a82088@alunos.uminho.pt
+<http://www.semanticweb.org/filip/ontologies/2020/1/UMbook#a82088@alunos.uminho.pt> rdf:type owl:NamedIndividual ,
+                                                                                             :Aluno ;
+                                                                                    :envia :mensagem002 ,
+                                                                                           :mensagem004 ;
+                                                                                    :frequenta :MIEI ,
+                                                                                               :Primeiro_Ano ;
+                                                                                    :dataNasc "1998-02-14" ;
+                                                                                    :nome "Luís Braga" ;
+                                                                                    :numAluno "a82088" ;
+                                                                                    :numTelemovel "930405069" ;
+                                                                                    :sexo "Masculino" .
+
+
+###  http://www.semanticweb.org/filip/ontologies/2020/1/UMbook#flipcunha@gmail.com
+<http://www.semanticweb.org/filip/ontologies/2020/1/UMbook#flipcunha@gmail.com> rdf:type owl:NamedIndividual ,
+                                                                                         :Aluno ,
+                                                                                         :Responsavel ;
+                                                                                :envia :mensagem005 ;
+                                                                                :frequenta :MIEI ;
+                                                                                :gere :Primeiro_Ano ;
+                                                                                :dataNasc "1997-02-06" ;
+                                                                                :nome "Filipe Cunha" ;
+                                                                                :numAluno "a83099" ;
+                                                                                :numTelemovel 934059688 ;
+                                                                                :sexo "Masculino" .
+
+
+###  http://www.semanticweb.org/filip/ontologies/2020/1/UMbook#gervasio@uminho.pt
+<http://www.semanticweb.org/filip/ontologies/2020/1/UMbook#gervasio@uminho.pt> rdf:type owl:NamedIndividual ,
+                                                                                        :Aluno ;
+                                                                               :frequenta :MIEI ,
+                                                                                          :undefined ;
+                                                                               :dataNasc "1994-02-15" ;
+                                                                               :nome "Gervásio" ;
+                                                                               :numAluno "a9384" ;
+                                                                               :numTelemovel "935857473" ;
+                                                                               :password "$2a$10$ueiLZKSSF5J1ugxMiAquiu58em077wJx7FivPVtoFKcARMgzVXoPC" ;
+                                                                               :sexo "Masculino" .
+
+
+###  http://www.semanticweb.org/filip/ontologies/2020/1/UMbook#joniboy@hotmail.com
+<http://www.semanticweb.org/filip/ontologies/2020/1/UMbook#joniboy@hotmail.com> rdf:type owl:NamedIndividual ,
+                                                                                         :Aluno ;
+                                                                                :envia :mensagem003 ;
+                                                                                :frequenta :MIEI ;
+                                                                                :gere :Segundo_Ano ;
+                                                                                :dataNasc "1998-11-12" ;
+                                                                                :nome "João Nunes" ;
+                                                                                :numAluno "a82300" ;
+                                                                                :numTelemovel 913958634 ;
+                                                                                :sexo "Masculino" .
+
+
+###  http://www.semanticweb.org/filip/ontologies/2020/1/UMbook#lguilhermem@hotmail.com
+<http://www.semanticweb.org/filip/ontologies/2020/1/UMbook#lguilhermem@hotmail.com> rdf:type owl:NamedIndividual ,
+                                                                                             :Aluno ;
+                                                                                    :envia :mensagem001 ,
+                                                                                           :mensagem006 ;
+                                                                                    :frequenta :MIEI ,
+                                                                                               :Primeiro_Ano ;
+                                                                                    :dataNasc "1998-10-15" ;
+                                                                                    :nome "Luís Martins" ;
+                                                                                    :numAluno "a82298" ;
+                                                                                    :numTelemovel "930492785" ;
+                                                                                    :sexo "Masculino" .
+
+
+###  http://www.semanticweb.org/filip/ontologies/2020/1/UMbook#olmofred@hotmail.com
+<http://www.semanticweb.org/filip/ontologies/2020/1/UMbook#olmofred@hotmail.com> rdf:type owl:NamedIndividual ,
+                                                                                          :Aluno ;
+                                                                                 :frequenta :MIEI ,
+                                                                                            :Segundo_Ano ;
+                                                                                 :dataNasc "1996-01-01" ;
+                                                                                 :nome "Frederico Sousa" ;
+                                                                                 :numAluno "a76465" ;
+                                                                                 :numTelemovel 919458385 ;
+                                                                                 :sexo "Masculino" .
+
+
+###  Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi

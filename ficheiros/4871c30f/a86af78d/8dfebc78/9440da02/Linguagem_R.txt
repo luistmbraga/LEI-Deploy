@@ -1,0 +1,14 @@
+
+R Studio: https://www.rstudio.com/products/rstudio/download/
+
+Linguagem R (Linux): 
+https://cran.r-project.org/bin/linux/ubuntu/README
+
+
+
+Linguagem R (Mac): https://cran.r-project.org/bin/macosx/
+
+Linguagem R (Windows): https://cran.r-project.org/bin/windows/base/
+
+
+

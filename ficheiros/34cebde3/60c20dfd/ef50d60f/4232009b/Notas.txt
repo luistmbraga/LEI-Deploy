@@ -1,0 +1,10 @@
+
+Software de análise e representação espectral em tempo-real:
+http://www.relisoft.com/freeware/freq.html
+
+Outras referências e curiosidades relacionadas com sinais, espectros e sons:
+http://nastechservices.com/Spectrograms
+http://en.wikipedia.org/wiki/Spectrogram
+http://www.bastwood.com/?page_id=10
+http://www.seeingwithsound.com/javoice.htm
+

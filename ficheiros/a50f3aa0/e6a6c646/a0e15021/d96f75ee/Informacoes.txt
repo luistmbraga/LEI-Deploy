@@ -1,0 +1,18 @@
+
+Modelos_PI:
+
+O ficheiro .zp contém ficheiros de alguns modelos de Programação Inteira.
+
+----------------
+
+Ficha 9 - Partição-Avaliação (data: ver data em BlackBoard > Entrega de Fichas de trabalho):
+
+Sugere-se a resolução desta ficha usando o LP Solve. O nó correspondente à raiz da árvore é o modelo de
+programação inteira apresentado na ficha sem as restrições de integralidade (a relaxação de programação linear).
+Depois, a solução de cada nó da árvore pode ser obtida, adicionando no modelo do LP Solve, as restrições de
+partição requeridas, de acordo com as regras indicadas na ficha.
+
+No final, depois de obter a solução óptima inteira, para verificar o resultado, resolva o modelo de programação
+inteira apresentado na ficha com as restrições de integralidade, ou seja, int x1,x2;
+
+----------------

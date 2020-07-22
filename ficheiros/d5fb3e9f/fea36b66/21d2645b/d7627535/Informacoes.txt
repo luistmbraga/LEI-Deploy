@@ -1,0 +1,52 @@
+------------------
+Dieta 1:
+
+3 - Exercícios - Modelos de Programação Linear - Resolução 7:
+Resolução do exercício proposto em A.J.Guimarães Rodrigues, Apontamentos de IO, pp.211 (agr7.pdf).
+
+------------------
+
+4-LotesProducao
+5-GestaoPessoal
+6-Dieta
+7-CorteDeStock
+
+Ficheiros .lp de exemplos do modelo apresentado nos diapositivos das aulas TP.
+
+------------------
+Fazenda, Gasolinas:
+
+8 - Exercícios - Modelos de Programação Linear - Resolução 5
+9 - Exercícios - Modelos de Programação Linear - Resolução 6
+Resoluções do exercício proposto em A.J.Guimarães Rodrigues, Apontamentos de IO, pp.208 (agr7.pdf).
+
+------------------
+Ligas metálicas:
+
+10 - Exercícios - Modelos de Programação Linear - Resolução 4:
+Resolução do exercício proposto em A.J.Guimarães Rodrigues, Apontamentos de IO, pp.207 (agr7.pdf).
+
+------------------
+Chapéus:
+
+11 - Exercícios - Simplex - Resolução 9:
+Resolução do exercício 1 do caderno de enunciados.
+
+------------------
+Plano de produção:
+
+12 - Exercícios - Modelos de Programação Linear - Resolução 2:
+Resolução do exercício 2 do caderno de enunciados.
+
+------------------
+Corte de stock:
+
+13 - Exercícios - Modelos de Programação Linear - Resolução 3:
+Resolução do exercício 3 do caderno de enunciados.
+
+------------------
+Investimento:
+
+14 - Exercícios - Modelos de Programação Linear - Resolução 1:
+Resolução do exercício 4 do caderno de enunciados.
+

@@ -1,0 +1,45 @@
+
+Useful Links:
+
+
+
+OpenGL 2.1 Reference pages: https://www.opengl.org/sdk/docs/man2/
+
+Lighthouse 3D GLUT tutorial: http://www.lighthouse3d.com/tutorials/glut-tutorial/
+
+-----------------------------------------------------------------------------
+
+
+2-Geometric Transformations:
+
+Aulas no iTunes University  Computer Graphics - Fall 2009, Kenneth Joy, University of California Davis
+SongHo.ca - Transformations: http://www.songho.ca/opengl/gl_transform.html
+
+
+-----------------------------------------------------------------------------
+
+
+3-Curves and Surfaces:
+
+Interactive site with some cubic curves: black pawn
+iTunes University course: Introduction to Geometric Modeling, UC Davis: http://www.blackpawn.com/texts/splines/
+
+-----------------------------------------------------------------------------
+
+7-Culling and Geometry Partition:
+
+Lighthouse3D View Frustum Culling tutorial:
+http://www.lighthouse3d.com/tutorials/view-frustum-culling/
+
+-----------------------------------------------------------------------------
+
+13 - Pipeline Programável:
+
+GLSL Tutorial: http://www.lighthouse3d.com/tutorials/glsl-tutorial/
+
+-----------------------------------------------------------------------------
+
+
+
+
+

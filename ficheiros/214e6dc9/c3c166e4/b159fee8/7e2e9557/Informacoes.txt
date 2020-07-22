@@ -1,0 +1,79 @@
+
+
+Ficha 1 - Ensaio:
+
+A ficha Ensaio serve apenas para o aluno ficar familiarizado com o processo de resolução das fichas de
+trabalho e da sua entrega.
+
+A resolução das fichas de trabalho envolve conceitos básicos e fundamentais da unidade curricular.
+A sua resolução não é obrigatória, mas dela resultará informação que poderá ser usada na avaliação de
+alunos em casos especiais.
+Ver o ficheiro BlackBoard > Informação geral e calendário > io_info_geral, para informação adicional.
+A entrega das fichas é feita em BlackBoard > Entrega de Fichas de trabalho, onde há informação adicional.
+
+------------------------------
+
+Ficha 2 - Resolução Gráfica (data: ver data em BlackBoard > Entrega de Fichas de trabalho):
+
+Para verificar que o desenho do domínio que é pedido na resolução desta ficha está correcto,
+recomenda-se que seja também resolvida a ficha Aspectos Geométricos, sobre resolução de sistemas de
+equações, que permite enumerar todos os vértices (admissíveis e não admissíveis) que aparecem no desenho.
+
+------------------------------
+
+Ficha 3 - Aspectos Geométricos (data: ver data em BlackBoard > Entrega de Fichas de trabalho):
+
+A resolução desta ficha envolve a utilização do ficheiro Excel FichaAspectosGeometricos SistemasEquacoes Simplex.
+São fornecidas 2 versões, sendo uma delas (a versão Excel 97-2003) compatível com sistemas operativos mais
+antigos.
+
+No separador “Resolução Sistema de Equações” do Excel, deve colocar o seu ID de aluno na coluna b (a amarelo).
+Depois, cada escolha de um qualquer conjunto de colunas linearmente independentes para formar a matriz B
+(linha a amarelo) dá origem a uma solução que é um vértice.
+
+Depois de construir a lista, recomenda-se que verifique que o desenho da ficha ResolucaoGrafica está correcto.
+As coordenadas x1 e x2 de cada vértice (admissível ou não admissível) do desenho podem ser verificadas,
+e adicionalmente pode ser verificado se os vértices são admissíveis, ou não, o que ajuda a identificar
+qual o sub-espaço que é o domínio correcto.
+
+------------------------------
+
+Ficha 4 - Simplex (data: ver data em BlackBoard > Entrega de Fichas de trabalho):
+
+A utilização do ficheiro Excel FichaSimplex ajuda a verificar se todos os elementos do quadro simplex calculados
+manualmente (usando o processo de eliminação de Gauss) estão correctos (i.e., se não têm erros de contas).
+São fornecidas 2 versões, sendo uma delas (a versão Excel 97-2003) compatível com sistemas operativos mais antigos.
+
+No separador “Simplex” do Excel, deve usar o seu ID de aluno para construir a linha da função objectivo.
+O vector -c (simétrico do número de ID de aluno) deve ser colocado nas posições do Excel de D9 a H9.
+Depois, cada escolha de um conjunto de colunas linearmente independentes para formar a matriz B
+(linha a amarelo) dá origem a uma solução básica do quadro simplex. Sugere-se o seguinte: em cada quadro,
+identificar o elemento pivô, e fazer a troca (na linha a amarelo) da variável que sai da base pela variável
+que entra na base, até obter a solução óptima.
+
+O LP é outra ferramenta que serve para verificar a solução. A solução óptima (lado direito) aparece
+em >Result >Objective. A solução apresentada poderá ser uma solução óptima alternativa.
+De qualquer modo, uma coisa deve permanecer igual: o valor do óptimo da função objectivo. 
+
+Os coeficientes da linha da função objectivo do quadro óptimo aparecem em >Result >Sensitivity >Duals.
+É de salientar que alguns dos sinais dos coeficientes poderão ser diferentes. Enquanto que o algoritmo
+que nós usamos manualmente é um algoritmo de maximização, que termina com a condição de optimalidade de todos
+os coeficientes da função objectivo serem não-negativos, o LP Solve usa condições de optimalidade consoante
+se trata de um problema de minimização ou maximização. Assim poderá haver troca de sinais nos valores.
+Também poderá haver diferenças nos valores (uma situação menos comum), caso haja soluções (duais) óptimas
+alternativas. A dualidade é um tópico desta disciplina, e será abordada mais tarde. 
+
+------------------------------
+
+Ficha 5 - Transportes (data: ver data em BlackBoard > Entrega de Fichas de trabalho):
+
+Para verificar que a resolução do exercício está correcta, pode utilizar o software Relax4, que está disponível
+em BlackBoard > Software, em Software de Optimização de Redes, juntamente com uma guia de utilização.
+
+A solução óptima dada pelo Relax4 pode ser uma solução óptima alternativa da obtida através da resolução
+manual, em que as variáveis de decisão óptimas tomam valores diferentes. Claramente, os valores das funções
+objectivo das duas soluções óptimas alternativas devem ser iguais.
+
+
+------------------------------
+
